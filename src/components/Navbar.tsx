@@ -50,8 +50,19 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="text-2xl font-heading font-bold text-white">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <motion.div
+              className="h-14 w-14 bg-white rounded-full flex items-center justify-center shadow-lg transition-all group-hover:shadow-xl group-hover:shadow-gold/30"
+              whileHover={{ scale: 1.1, rotate: [0, -10, 10, -10, 0] }}
+              transition={{ duration: 0.5 }}
+            >
+              <img
+                src="/images/logo.png"
+                alt="Everspring International Logo"
+                className="h-10 w-10 object-contain"
+              />
+            </motion.div>
+            <div className="text-2xl font-heading font-bold text-white group-hover:text-gold transition-colors">
               Everspring International
             </div>
           </Link>
