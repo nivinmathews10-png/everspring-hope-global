@@ -42,8 +42,46 @@ const JordanCommunity = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <motion.div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200&q=80')"
+            }}
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 15, repeat: Infinity }}
+          />
+          <div className="absolute inset-0 bg-gradient-primary/85" />
+        </div>
+        
+        {/* Dove symbols */}
+        <div className="absolute inset-0">
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-white/15 text-6xl"
+              initial={{
+                x: -100,
+                y: Math.random() * window.innerHeight,
+              }}
+              animate={{
+                x: window.innerWidth + 100,
+                y: [null, Math.random() * 50 - 25, Math.random() * 50 - 25],
+              }}
+              transition={{
+                duration: 30 + i * 5,
+                repeat: Infinity,
+                delay: i * 7,
+                ease: "linear",
+              }}
+            >
+              🕊
+            </motion.div>
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

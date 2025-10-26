@@ -57,6 +57,46 @@ const Donate = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center bg-gradient-hero text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <motion.div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1200&q=80')"
+            }}
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 20, repeat: Infinity }}
+          />
+          <div className="absolute inset-0 bg-gradient-hero/85" />
+        </div>
+        
+        {/* Floating hearts */}
+        <div className="absolute inset-0">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-gold/20"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: window.innerHeight + 50,
+              }}
+              animate={{
+                y: -50,
+                x: [null, Math.random() * 50 - 25],
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 15 + i * 2,
+                repeat: Infinity,
+                delay: i * 1,
+                ease: "linear",
+              }}
+            >
+              <Heart className="w-8 h-8" />
+            </motion.div>
+          ))}
+        </div>
+        
         <div className="absolute inset-0 opacity-10 animate-float">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAxMmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIGZpbGw9IiNmZmYiLz48L2c+PC9zdmc+')]"></div>
         </div>

@@ -31,8 +31,43 @@ const Bangalore = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <motion.div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=80')"
+            }}
+            animate={{ x: [-10, 10, -10] }}
+            transition={{ duration: 20, repeat: Infinity }}
+          />
+          <div className="absolute inset-0 bg-gradient-primary/80" />
+        </div>
+        
+        {/* Stars animation */}
+        <div className="absolute inset-0">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-yellow-300 rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+              }}
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [0.3, 1, 0.3],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

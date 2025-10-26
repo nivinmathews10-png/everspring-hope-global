@@ -42,8 +42,45 @@ const ChurchPlanting = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1200&q=80')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-primary/85" />
+        </div>
+        
+        {/* Church symbols animation */}
+        <div className="absolute inset-0">
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-white/10"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scale: 0.5,
+              }}
+              animate={{
+                scale: [0.5, 1, 0.5],
+                opacity: [0.1, 0.2, 0.1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 20 + i * 4,
+                repeat: Infinity,
+                delay: i * 3,
+              }}
+            >
+              <Church className="w-16 h-16" />
+            </motion.div>
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

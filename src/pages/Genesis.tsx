@@ -16,8 +16,44 @@ const Genesis = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-hero text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-hero text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <motion.div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80')"
+            }}
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.1 }}
+            transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          />
+          <div className="absolute inset-0 bg-gradient-hero/80" />
+        </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(10)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-white/30 rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: window.innerHeight + 50,
+              }}
+              animate={{
+                y: -50,
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: Math.random() * 10 + 10,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+              }}
+            />
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

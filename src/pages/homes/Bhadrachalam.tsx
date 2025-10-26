@@ -32,8 +32,46 @@ const Bhadrachalam = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=1200&q=80')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-primary/85" />
+        </div>
+        
+        {/* Leaves falling animation */}
+        <div className="absolute inset-0">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-green-300/20 text-4xl"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: -50,
+                rotate: 0,
+              }}
+              animate={{
+                y: window.innerHeight + 50,
+                rotate: 360,
+                x: [null, Math.random() * 100 - 50],
+              }}
+              transition={{
+                duration: 10 + i * 2,
+                repeat: Infinity,
+                delay: i * 1.5,
+                ease: "linear",
+              }}
+            >
+              🍃
+            </motion.div>
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -32,8 +32,42 @@ const Ambur = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1497375473389-64a0fac8046c?w=1200&q=80')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-primary/85" />
+        </div>
+        
+        {/* Success rays animation */}
+        <div className="absolute inset-0">
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 bg-gradient-to-b from-gold/30 to-transparent"
+              style={{
+                height: '100%',
+                left: `${15 + i * 15}%`,
+                transformOrigin: 'top center',
+              }}
+              animate={{
+                opacity: [0, 0.5, 0],
+                scaleY: [0.8, 1, 0.8],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: i * 0.5,
+              }}
+            />
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

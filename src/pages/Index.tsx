@@ -201,8 +201,24 @@ const Index = () => {
 
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-secondary">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-20 bg-secondary relative overflow-hidden">
+        {/* Background Image with Parallax */}
+        <motion.div 
+          className="absolute inset-0 opacity-20"
+          initial={{ scale: 1.1 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80')",
+              filter: "blur(2px)"
+            }}
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary via-secondary/90 to-secondary" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -257,8 +273,32 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-10">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-20 h-20 border-2 border-primary rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+              }}
+              animate={{
+                y: [null, Math.random() * -200],
+                x: [null, Math.random() * 100 - 50],
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.1, 0.3],
+              }}
+              transition={{
+                duration: Math.random() * 15 + 10,
+                repeat: Infinity,
+                delay: Math.random() * 5,
+              }}
+            />
+          ))}
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

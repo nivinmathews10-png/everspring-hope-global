@@ -9,8 +9,43 @@ const Raibag = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=1200&q=80')"
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-primary/85" />
+        </div>
+        
+        {/* Community circles */}
+        <div className="absolute inset-0">
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute border-2 border-white/10 rounded-full"
+              style={{
+                width: `${80 + i * 30}px`,
+                height: `${80 + i * 30}px`,
+                left: `${Math.random() * 80}%`,
+                top: `${Math.random() * 80}%`,
+              }}
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.3, 0.1],
+              }}
+              transition={{
+                duration: 5 + i,
+                repeat: Infinity,
+                delay: i * 0.5,
+              }}
+            />
+          ))}
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
