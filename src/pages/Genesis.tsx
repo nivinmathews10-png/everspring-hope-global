@@ -109,6 +109,16 @@ const Genesis = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-6">
                 The Heart of India's Need
               </h2>
+              
+              {/* Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=80"
+                  alt="Children in India"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
                 India, the world's second most populous nation, is home to over 1.2 billion people
                 across 29 states and 7 union territories. Despite decades of high economic growth,
@@ -128,6 +138,16 @@ const Genesis = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-6 mt-12">
                 Our Beginning
               </h2>
+              
+              {/* Founder Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80"
+                  alt="Community service"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
                 Amidst this vast socio-economic, religious, traditional, and caste-driven
                 complexity, Helping Hands India was born in 2001 with a mission to empower and

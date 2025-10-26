@@ -98,6 +98,16 @@ const Bangalore = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 Who We Are
               </h2>
+              
+              {/* Children Home Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80"
+                  alt="Children at home playing"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
                 New Hope Children Home in Bengaluru is a safe haven for some of the most vulnerable
                 children in society. Currently, it is home to 40 children who come from backgrounds

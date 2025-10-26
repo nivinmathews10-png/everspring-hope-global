@@ -172,6 +172,15 @@ const ChurchPlanting = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-12 text-center">
                 How Churches Transform Communities
               </h2>
+              
+              {/* Church Community Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800&q=80"
+                  alt="Church community gathering"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
 
               <div className="space-y-8">
                 <div className="bg-gradient-gold text-gold-foreground p-8 rounded-lg shadow-lg">

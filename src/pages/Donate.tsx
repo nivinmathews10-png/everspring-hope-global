@@ -257,6 +257,15 @@ const Donate = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-6">
                 Your Trust Matters
               </h2>
+              
+              {/* Trust Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80"
+                  alt="Helping hands"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
               <p className="text-xl text-foreground/80 leading-relaxed mb-8">
                 We are committed to transparency and accountability. Every donation is used
                 efficiently and effectively to maximize impact in the communities we serve.

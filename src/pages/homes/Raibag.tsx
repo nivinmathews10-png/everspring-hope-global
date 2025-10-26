@@ -129,6 +129,16 @@ const Raibag = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 Our Community Centre Vision
               </h2>
+              
+              {/* Community Centre Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=800&q=80"
+                  alt="Community children learning together"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <p className="text-lg text-foreground/80 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
                 In 2010, Helping Hands India launched Community Centres with a vision to transform
                 the lives of children and their families within their own villages. Unlike

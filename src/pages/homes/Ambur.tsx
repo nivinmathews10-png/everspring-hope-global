@@ -98,6 +98,16 @@ const Ambur = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 The Challenge We Faced
               </h2>
+              
+              {/* Ambur Context Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1497375473389-64a0fac8046c?w=800&q=80"
+                  alt="Children receiving education"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
                 The New Hope Children Community Centre in Ambur, Tamil Nadu, is located along the
                 Chennai-Bengaluru National Highway. This region struggles with undrinkable and

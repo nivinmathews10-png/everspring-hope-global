@@ -177,6 +177,15 @@ const JordanCommunity = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 Our Comprehensive Support
               </h2>
+              
+              {/* Support Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800&q=80"
+                  alt="Community support"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
 
               <div className="space-y-6">
                 <div className="bg-gradient-gold text-gold-foreground p-8 rounded-lg shadow-lg">

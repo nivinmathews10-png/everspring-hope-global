@@ -163,6 +163,15 @@ const ElderCare = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 Nanjamma's Story
               </h2>
+              
+              {/* Story Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=800&q=80"
+                  alt="Elder care and support"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
               <div className="bg-gradient-gold text-gold-foreground p-8 rounded-lg shadow-lg mb-8">
                 <p className="text-lg leading-relaxed mb-6">
                   One of the women who found refuge at the New Hope Elder and Widows Home had

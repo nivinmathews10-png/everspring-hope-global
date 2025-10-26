@@ -102,6 +102,16 @@ const Bhadrachalam = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 A Journey of Compassion
               </h2>
+              
+              {/* Tribal Children Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=800&q=80"
+                  alt="Tribal children community"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-foreground/80 leading-relaxed mb-6">
                   When Executive Director George Fernandes first visited the remote tribal villages

@@ -161,6 +161,16 @@ const SpecialCare = () => {
               <h3 className="text-2xl font-heading font-bold text-primary mb-6">
                 Comprehensive Services
               </h3>
+              
+              {/* Healthcare Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&q=80"
+                  alt="Healthcare services"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 {hivServices.map((service, index) => (
                   <motion.div
@@ -206,6 +216,16 @@ const SpecialCare = () => {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
                 Community Centre - Jeevanahalli
               </h2>
+              
+              {/* Community Image */}
+              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80"
+                  alt="Community children learning"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              
               <p className="text-lg text-foreground/80 leading-relaxed mb-6">
                 The New Hope Community Centre in Jeevanahalli was born from the Executive
                 Director's deep connection to his roots. Born and raised in Jeevanahalli slum, he
