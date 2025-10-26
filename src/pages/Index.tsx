@@ -40,6 +40,165 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+{/* Did You Know Section */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <circle cx="20" cy="20" r="1" fill="#000"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+          </svg>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            {/* Title with icon */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/5 mb-6">
+                <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-primary">
+                Did You Know?
+              </h2>
+              <div className="w-24 h-1 bg-primary/20 mx-auto rounded-full"></div>
+            </motion.div>
+
+            {/* Main content card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white border-2 border-gray-100 rounded-2xl p-8 md:p-12 shadow-xl"
+            >
+              {/* India illustration */}
+              <div className="flex items-start gap-6 mb-8">
+                <div className="hidden md:block flex-shrink-0">
+                  <svg className="w-24 h-24 text-primary/10" viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50 10 L90 90 L10 90 Z"/>
+                  </svg>
+                </div>
+                <p className="text-lg md:text-xl leading-relaxed text-gray-700">
+                  India, the world's second most populous nation, is home to over 1.2 billion people across 29 states and 7 union territories. Despite decades of high economic growth, millions remain trapped in poverty. Alarming realities paint the picture:
+                </p>
+              </div>
+
+              {/* Statistics grid with icons */}
+              <div className="grid md:grid-cols-2 gap-6 my-10">
+                {[
+                  { stat: "22,000", text: "children die every day due to poverty-related causes (UNICEF)", icon: "M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+                  { stat: "3M+", text: "children live on the streets", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+                  { stat: "150M", text: "children are trapped in bonded labour", icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+                  { stat: "50%", text: "of children have access to education", icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" },
+                  { stat: "2M", text: "girls aged 5-15 exploited in commercial sex work", icon: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex gap-4 p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2">
+                        {item.stat}
+                      </div>
+                      <p className="text-gray-600 leading-relaxed">{item.text}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Mission statement with decorative elements */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                viewport={{ once: true }}
+                className="relative bg-gradient-to-r from-primary/5 to-transparent border-l-4 border-primary rounded-lg p-8 my-10"
+              >
+                <div className="absolute top-4 right-4 opacity-10">
+                  <svg className="w-16 h-16 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+                <p className="text-lg md:text-xl leading-relaxed text-gray-800 font-semibold relative z-10">
+                  Amidst this vast socio-economic, religious, traditional, and caste-driven complexity, Helping Hands India was born in 2001 with a mission to empower and transform vulnerable children and communities—regardless of caste, creed, religion, or background.
+                </p>
+              </motion.div>
+
+              {/* Founder story with profile illustration */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                viewport={{ once: true }}
+                className="space-y-6"
+              >
+                <div className="flex items-start gap-6">
+                  <div className="hidden md:block flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-lg leading-relaxed text-gray-700">
+                    The movement began when compassion and a divine call touched the heart of Dr. Rev. George Fernandes, a counsellor and theologian. Known lovingly by children as <span className="font-semibold text-primary">"Appa" (Father)</span>, George drew strength from his own painful childhood. Growing up as a semi-orphan and struggling under poverty, he once stood on the brink of despair. But in that moment of brokenness, God transformed his life igniting in him a passion to transform the lives of countless others.
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-6">
+                  <div className="hidden md:block flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-lg leading-relaxed text-gray-700">
+                    For the past 25 years, Helping Hands India has rendered restless service across the nation. What began with one man's compassion has grown into a movement of hope. Through these years of unwavering dedication, countless children have been rescued, educated, and empowered. Families have been restored, communities uplifted, and lives transformed.
+                  </p>
+                </div>
+
+                {/* Final quote with decorative element */}
+                <div className="relative mt-10 pt-8 border-t-2 border-gray-200">
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-12 h-12 rounded-full bg-white border-2 border-primary flex items-center justify-center">
+                      <svg className="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-xl leading-relaxed text-gray-800 font-semibold italic text-center">
+                    Today, Helping Hands India stands as a living transforming power, reminding us that when faith meets compassion, despair turns into hope, poverty into possibility, and broken lives into testimonies of grace.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
 
       {/* About Section */}
       <section id="about" className="py-20 bg-secondary">
