@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Heart, Users, Home, TrendingUp, BookOpen, Award, ArrowRight, Star, Sparkles, Target, Calendar } from "lucide-react";
+import { Heart, Users, Home, TrendingUp, BookOpen, Award, ArrowRight, Star, Sparkles, Target, Calendar,AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 
@@ -163,114 +163,86 @@ const Index = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            {/* Title with animation */}
+            {/* Title with reduced animation */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-20"
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
             >
-              <motion.div
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="inline-block mb-6"
-              >
-                <div className="bg-[#678E76]/10 backdrop-blur-md px-6 py-3 rounded-full border border-[#678E76]/20">
-                  <span className="text-[#678E76] font-semibold flex items-center gap-2">
-                    <Star className="h-5 w-5 text-[#C0A58B]" fill="currentColor" />
+              <div className="inline-block mb-4">
+                <div className="bg-[#678E76]/10 backdrop-blur-md px-5 py-2 rounded-full border border-[#678E76]/20">
+                  <span className="text-[#678E76] font-semibold flex items-center gap-2 text-sm">
+                    <Star className="h-4 w-4 text-[#C0A58B]" fill="currentColor" />
                     India's Reality
-                    <Star className="h-5 w-5 text-[#C0A58B]" fill="currentColor" />
+                    <Star className="h-4 w-4 text-[#C0A58B]" fill="currentColor" />
                   </span>
                 </div>
-              </motion.div>
+              </div>
               
-              <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+              <h2 className="text-4xl md:text-5xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-4">
                 Did You Know?
               </h2>
               
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="h-2 w-32 bg-gradient-to-r from-[#678E76] to-[#C0A58B] mx-auto rounded-full"
-              />
+              <div className="h-1 w-24 bg-gradient-to-r from-[#678E76] to-[#C0A58B] mx-auto rounded-full" />
             </motion.div>
 
             {/* Main content card */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="relative"
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/10 to-[#C0A58B]/10 rounded-3xl blur-2xl" />
-              <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-8 md:p-12 rounded-3xl shadow-2xl border border-[#678E76]/10">
+              <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-6 md:p-10 rounded-3xl shadow-2xl border border-[#678E76]/10">
                 {/* India illustration */}
-                <div className="flex items-start gap-8 mb-12">
-                  <motion.div
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="hidden md:block flex-shrink-0"
-                  >
-                    <div className="w-32 h-32 bg-gradient-to-br from-[#678E76] to-[#8BAA92] rounded-2xl flex items-center justify-center shadow-xl">
-                      <svg className="w-20 h-20 text-white" viewBox="0 0 100 100" fill="currentColor">
+                <div className="flex items-start gap-6 mb-10">
+                  <div className="hidden md:block flex-shrink-0">
+                    <div className="w-24 h-24 bg-gradient-to-br from-[#678E76] to-[#8BAA92] rounded-2xl flex items-center justify-center shadow-xl">
+                      <svg className="w-16 h-16 text-white" viewBox="0 0 100 100" fill="currentColor">
                         <path d="M50 10 L90 90 L10 90 Z" fill="currentColor"/>
                       </svg>
                     </div>
-                  </motion.div>
-                  <motion.p
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-2xl leading-relaxed text-gray-700 font-medium"
-                  >
+                  </div>
+                  <p className="text-base md:text-lg leading-relaxed text-gray-700">
                     India, the world's second most populous nation, is home to over 1.2 billion people across 29 states and 7 union territories. Despite decades of high economic growth, millions remain trapped in poverty. Alarming realities paint the picture:
-                  </motion.p>
+                  </p>
                 </div>
 
-                {/* Statistics grid with enhanced animations */}
-                <div className="grid md:grid-cols-2 gap-8 my-16">
+                {/* Statistics grid with reduced animations */}
+                <div className="grid md:grid-cols-2 gap-6 my-12">
                   {[
                     { stat: "22,000", text: "children die every day due to poverty-related causes (UNICEF)", icon: Heart },
+                    { stat: "1 in 6", text: "children globally face food insecurity and malnutrition", icon: AlertCircle },
                     { stat: "3M+", text: "children live on the streets", icon: Home },
                     { stat: "150M", text: "children are trapped in bonded labour", icon: Users },
                     { stat: "50%", text: "of children have access to education", icon: BookOpen },
-                    { stat: "2M", text: "girls aged 5-15 exploited in commercial sex work", icon: Target },
+                    { stat: "2M", text: "girls aged 5 - 15 exploited in commercial sex work", icon: Target },
+                    
                   ].map((item, index) => (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 30, rotateY: -30 }}
-                      whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                      whileHover={{ y: -8, scale: 1.02 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
                       className="group relative"
                     >
-                      <div className="absolute -inset-1 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                      <div className="relative bg-white p-8 rounded-3xl shadow-xl border border-[#678E76]/20 hover:shadow-2xl transition-all duration-500">
-                        <div className="flex gap-6 items-start">
-                          <motion.div
-                            animate={{ rotate: [0, -5, 5, 0] }}
-                            transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
-                            className="flex-shrink-0"
-                          >
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#678E76] to-[#8BAA92] flex items-center justify-center shadow-lg">
-                              <item.icon className="w-8 h-8 text-white" />
+                      <div className="relative bg-white p-6 rounded-2xl shadow-lg border border-[#678E76]/20 hover:shadow-xl transition-shadow duration-300">
+                        <div className="flex gap-4 items-start">
+                          <div className="flex-shrink-0">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#678E76] to-[#8BAA92] flex items-center justify-center shadow-lg">
+                              <item.icon className="w-6 h-6 text-white" />
                             </div>
-                          </motion.div>
+                          </div>
                           <div className="flex-1">
-                            <motion.div
-                              initial={{ scale: 0 }}
-                              whileInView={{ scale: 1 }}
-                              viewport={{ once: true }}
-                              transition={{ type: "spring", delay: 0.7 + index * 0.1 }}
-                              className="text-4xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-3"
-                            >
+                            <div className="text-2xl md:text-3xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-2">
                               {item.stat}
-                            </motion.div>
-                            <p className="text-gray-600 leading-relaxed text-lg">{item.text}</p>
+                            </div>
+                            <p className="text-gray-600 leading-relaxed text-sm md:text-base">{item.text}</p>
                           </div>
                         </div>
                       </div>
@@ -280,78 +252,63 @@ const Index = () => {
 
                 {/* Mission statement */}
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1 }}
+                  transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="relative bg-gradient-to-r from-[#678E76]/10 to-transparent border-l-4 border-[#678E76] rounded-2xl p-10 my-16"
+                  className="relative bg-gradient-to-r from-[#678E76]/10 to-transparent border-l-4 border-[#678E76] rounded-2xl p-6 md:p-8 my-12"
                 >
-                  <div className="absolute top-6 right-6 opacity-10">
-                    <Heart className="w-20 h-20 text-[#678E76]" fill="currentColor" />
+                  <div className="absolute top-4 right-4 opacity-10">
+                    <Heart className="w-16 h-16 text-[#678E76]" fill="currentColor" />
                   </div>
-                  <p className="text-2xl leading-relaxed text-gray-800 font-semibold relative z-10">
+                  <p className="text-base md:text-lg leading-relaxed text-gray-800 font-semibold relative z-10">
                     Amidst this vast socio-economic, religious, traditional, and caste-driven complexity, Helping Hands India was born in 2001 with a mission to empower and transform vulnerable children and communities—regardless of caste, creed, religion, or background.
                   </p>
                 </motion.div>
 
                 {/* Founder story */}
                 <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
+                  transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="space-y-8"
+                  className="space-y-6"
                 >
-                  <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <motion.div
-                      initial={{ opacity: 0, x: -50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8, delay: 1.4 }}
-                      className="hidden md:block"
-                    >
-                      <div className="bg-gradient-to-br from-[#678E76] to-[#8BAA92] p-8 rounded-3xl text-white text-center shadow-xl">
-                        <Users className="w-16 h-16 mx-auto mb-4" />
-                        <div className="text-3xl font-black mb-2">"Appa"</div>
-                        <div className="text-lg opacity-90">Father to Hundreds</div>
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="hidden md:block">
+                      <div className="bg-gradient-to-br from-[#678E76] to-[#8BAA92] p-6 rounded-2xl text-white text-center shadow-xl">
+                        <Users className="w-12 h-12 mx-auto mb-3" />
+                        <div className="text-2xl font-black mb-2">"Appa"</div>
+                        <div className="text-base opacity-90">Father to Hundreds</div>
                       </div>
-                    </motion.div>
+                    </div>
                     <div>
-                      <p className="text-xl leading-relaxed text-gray-700 mb-6">
+                      <p className="text-base md:text-lg leading-relaxed text-gray-700 mb-4">
                         The movement began when compassion and a divine call touched the heart of Dr. Rev. George Fernandes, a counsellor and theologian. Known lovingly by children as <span className="font-bold text-[#678E76]">"Appa" (Father)</span>, George drew strength from his own painful childhood.
                       </p>
-                      <p className="text-xl leading-relaxed text-gray-700">
+                      <p className="text-base md:text-lg leading-relaxed text-gray-700">
                         Growing up as a semi-orphan and struggling under poverty, he once stood on the brink of despair. But in that moment of brokenness, God transformed his life igniting in him a passion to transform the lives of countless others.
                       </p>
                     </div>
                   </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 1.6 }}
-                    className="bg-gradient-to-r from-[#C0A58B]/10 to-[#D4BFA3]/10 p-8 rounded-2xl border border-[#C0A58B]/20"
-                  >
-                    <p className="text-xl leading-relaxed text-gray-700">
+                  <div className="bg-gradient-to-r from-[#C0A58B]/10 to-[#D4BFA3]/10 p-6 rounded-2xl border border-[#C0A58B]/20">
+                    <p className="text-base md:text-lg leading-relaxed text-gray-700">
                       For the past 25 years, Helping Hands India has rendered restless service across the nation. What began with one man's compassion has grown into a movement of hope. Through these years of unwavering dedication, countless children have been rescued, educated, and empowered. Families have been restored, communities uplifted, and lives transformed.
                     </p>
-                  </motion.div>
+                  </div>
 
                   {/* Final quote */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 1.8 }}
-                    className="relative mt-12 pt-12 border-t-2 border-[#678E76]/20"
-                  >
+                  <div className="relative mt-10 pt-10 border-t-2 border-[#678E76]/20">
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="w-16 h-16 rounded-full bg-white border-4 border-[#678E76] flex items-center justify-center shadow-lg">
-                        <Sparkles className="w-8 h-8 text-[#678E76]" />
+                      <div className="w-12 h-12 rounded-full bg-white border-4 border-[#678E76] flex items-center justify-center shadow-lg">
+                        <Sparkles className="w-6 h-6 text-[#678E76]" />
                       </div>
                     </div>
-                    <p className="text-2xl leading-relaxed text-gray-800 font-semibold italic text-center">
+                    <p className="text-base md:text-xl leading-relaxed text-gray-800 font-semibold italic text-center">
                       Today, Helping Hands India stands as a living transforming power, reminding us that when faith meets compassion, despair turns into hope, poverty into possibility, and broken lives into testimonies of grace.
                     </p>
-                  </motion.div>
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
