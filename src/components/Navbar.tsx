@@ -20,7 +20,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Genesis", path: "/genesis" },
+    { name: "About Us", path: "/genesis" },
     {
       name: "Homes",
       path: "/homes",
