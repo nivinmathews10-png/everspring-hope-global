@@ -1,162 +1,372 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Home, GraduationCap, Heart, Trophy, Users } from "lucide-react";
+import { Home, GraduationCap, Heart, Target, Users, Shield, Sparkles, ArrowRight, Star } from "lucide-react";
 
 const Bangalore = () => {
-  const achievements = [
-    "180 children transformed and reintegrated into families",
-    "11 girls joyfully married and settled",
-    "School teachers shaping future generations",
-    "IT professionals as managers and supervisors",
-    "Nurses and medical personnel in hospitals",
-    "Real estate managers",
-    "Beauticians with successful businesses",
-    "Several children abroad, including USA",
-    "Students pursuing MBA, M.Phil., and IPS preparation",
-    "Banking sector tellers and officers",
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const uniqueFeatures = [
+    {
+      icon: Users,
+      title: "Family Atmosphere",
+      description: "Children grow up not in an institution, but in a home filled with love, acceptance, and belonging.",
+      color: "from-[#678E76] to-[#557366]",
+    },
+    {
+      icon: GraduationCap,
+      title: "Quality Education",
+      description: "All children attend reputed English medium schools in Bengaluru, giving them a strong foundation for their future.",
+      color: "from-[#C0A58B] to-[#A88D73]",
+    },
+    {
+      icon: Shield,
+      title: "Healthcare & Wellbeing",
+      description: "Special care is given to HIV-affected and physically weak children, ensuring health and dignity.",
+      color: "from-[#8BAA92] to-[#678E76]",
+    },
+    {
+      icon: Heart,
+      title: "Faith & Values",
+      description: "Children are nurtured with strong moral and spiritual values that shape their character.",
+      color: "from-[#D4BFA3] to-[#C0A58B]",
+    },
+    {
+      icon: Sparkles,
+      title: "Future Empowerment",
+      description: "Beyond academics, children are encouraged to develop skills, talents, and leadership qualities.",
+      color: "from-[#678E76] to-[#8BAA92]",
+    },
   ];
 
-  const credentials = [
-    "Invited to garland RCB Cricket Team during IPL",
-    "Spoke on FM Radio 92.7 about child labour",
-    "Regular yoga classes organized by Times of India",
-    "Educational trips twice a year across Karnataka",
-    "Sports meets every six months",
-    "Frequent visits from IT companies and elite schools",
+  const missionPoints = [
+    "To provide holistic care—physical, emotional, spiritual, and educational.",
+    "To nurture children in a family-like atmosphere where they are loved and valued.",
+    "To ensure access to quality education through reputed English medium schools in Bengaluru.",
+    "To build resilience and self-confidence so that every child can break the cycle of poverty and hopelessness.",
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#FAF8F5]">
       <Navbar />
 
+      {/* Animated Background Orbs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <motion.div
+          animate={{
+            x: mousePosition.x / 50,
+            y: mousePosition.y / 50,
+          }}
+          transition={{ type: "spring", damping: 30 }}
+          className="absolute -top-40 -left-40 w-96 h-96 bg-[#678E76]/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            x: -mousePosition.x / 40,
+            y: -mousePosition.y / 40,
+          }}
+          transition={{ type: "spring", damping: 30 }}
+          className="absolute top-1/3 -right-40 w-96 h-96 bg-[#C0A58B]/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            x: mousePosition.x / 60,
+            y: -mousePosition.y / 60,
+          }}
+          transition={{ type: "spring", damping: 30 }}
+          className="absolute bottom-0 left-1/3 w-96 h-96 bg-[#8BAA92]/20 rounded-full blur-3xl"
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-primary text-white pt-20 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <motion.div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1200&q=80')"
-            }}
-            animate={{ x: [-10, 10, -10] }}
-            transition={{ duration: 20, repeat: Infinity }}
-          />
-          <div className="absolute inset-0 bg-gradient-primary/80" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#678E76] via-[#7A9B82] to-[#C0A58B]">
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-0 w-full h-full" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }}></div>
+          </div>
         </div>
         
-        {/* Stars animation */}
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-yellow-300 rounded-full"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-              }}
-              animate={{
-                scale: [1, 1.5, 1],
-                opacity: [0.3, 1, 0.3],
-              }}
-              transition={{
-                duration: 2 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
-        </div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-bold mb-6"
+          <motion.div
+            style={{ opacity, scale }}
+            className="space-y-8"
           >
-            New Hope Children Home
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl"
-          >
-            Bengaluru - A Safe Haven of Love and Transformation
-          </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <motion.div
+                animate={{ rotate: [0, 5, -5, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block mb-6"
+              >
+                <div className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/40">
+                  <span className="text-white font-semibold flex items-center gap-2">
+                    <Star className="h-5 w-5 text-[#C0A58B]" fill="currentColor" />
+                    Est. December 23, 2001
+                    <Star className="h-5 w-5 text-[#C0A58B]" fill="currentColor" />
+                  </span>
+                </div>
+              </motion.div>
+              
+              <h1 className="text-7xl md:text-9xl font-heading font-black text-white mb-6 tracking-tight leading-none">
+                <motion.span
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="inline-block"
+                >
+                  New Hope
+                </motion.span>
+                <br />
+                <motion.span
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="inline-block bg-gradient-to-r from-[#C0A58B] to-[#D4BFA3] bg-clip-text text-transparent"
+                >
+                  Children Home
+                </motion.span>
+              </h1>
+              
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="h-2 w-48 bg-gradient-to-r from-[#C0A58B] to-white mx-auto mb-8 rounded-full"
+              />
+              
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="text-3xl md:text-4xl font-light text-white/95"
+              >
+                Bengaluru
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+                className="text-xl md:text-2xl text-white/80 mt-4 max-w-2xl mx-auto"
+              >
+                A Safe Haven of Love and Transformation
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="pt-12"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block cursor-pointer"
+              >
+                <div className="bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/40 hover:bg-white/30 transition-all">
+                  <ArrowRight className="h-6 w-6 text-white rotate-90" />
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Who We Are */}
-      <section className="py-20">
+      <section className="py-32 bg-white relative z-10">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
-                Who We Are
-              </h2>
-              
-              {/* Children Home Image */}
-              <div className="mb-8 rounded-xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80"
-                  alt="Children at home playing"
-                  className="w-full h-64 object-cover"
+              <div className="text-center mb-16">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="inline-block bg-gradient-to-r from-[#678E76] to-[#8BAA92] text-white px-6 py-2 rounded-full text-sm font-semibold mb-6"
+                >
+                  OUR STORY
+                </motion.div>
+                
+                <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+                  Who We Are
+                </h2>
+                
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="h-2 w-32 bg-gradient-to-r from-[#678E76] to-[#C0A58B] mx-auto rounded-full"
                 />
               </div>
               
-              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                New Hope Children Home in Bengaluru is a safe haven for some of the most vulnerable
-                children in society. Currently, it is home to 40 children who come from backgrounds
-                of orphanhood, semi-orphanhood, abandonment, and children rescued from streets and
-                slums.
-              </p>
-              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                Referrals come through recognised institutions, government officials, police
-                departments, village elders, and community leaders, ensuring that children most in
-                need are given a new beginning.
-              </p>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative"
+              >
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur-2xl" />
+                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-12 md:p-16 rounded-3xl shadow-2xl border border-[#678E76]/10">
+                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                    New Hope Children Home in Bengaluru is a <span className="font-bold text-[#678E76]">safe haven</span> for some of the most vulnerable children in society. Currently, it is home to{" "}
+                    <motion.span
+                      whileHover={{ scale: 1.1 }}
+                      className="inline-block font-black text-3xl bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent cursor-default"
+                    >
+                      40 children
+                    </motion.span>{" "}
+                    who come from backgrounds of orphanhood, semi-orphanhood, abandonment, and children rescued from streets and slums.
+                  </p>
+                  <p className="text-2xl text-gray-700 leading-relaxed">
+                    Referrals come through recognised institutions, government officials, police departments, village elders, and community leaders, ensuring that children most in need are given a new beginning.
+                  </p>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Journey & Vision */}
-      <section className="py-16 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
+      {/* Journey, Vision & Mission */}
+      <section className="py-32 bg-gradient-to-b from-[#FAF8F5] to-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#678E76_1px,transparent_1px),linear-gradient(to_bottom,#678E76_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-10">
+              {/* Our Journey */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-card p-8 rounded-lg shadow-lg"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group relative"
               >
-                <Home className="h-12 w-12 text-gold mb-4" />
-                <h3 className="text-2xl font-heading font-bold text-primary mb-4">Our Journey</h3>
-                <p className="text-foreground/80">
-                  The Home began on 23rd December 2001 with just 10 children. By God's grace and
-                  through committed service, what began as a small initiative has now become a
-                  family of hope, care, and transformation.
-                </p>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#678E76] to-[#8BAA92] rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div className="relative bg-white p-10 rounded-3xl shadow-xl border border-[#678E76]/20 h-full">
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-gradient-to-br from-[#678E76] to-[#8BAA92] w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shadow-lg"
+                  >
+                    <Home className="h-10 w-10 text-white" />
+                  </motion.div>
+                  
+                  <h3 className="text-4xl font-heading font-black text-[#678E76] mb-6">
+                    Our Journey
+                  </h3>
+                  
+                  <div className="h-1 w-16 bg-gradient-to-r from-[#C0A58B] to-[#D4BFA3] rounded-full mb-6"></div>
+                  
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    The Home began on <span className="font-bold text-[#678E76]">23rd December 2001</span> in a modest way with just 10 children. By God's grace and through committed service, what began as a small initiative has now become a family of hope, care, and transformation.
+                  </p>
+                </div>
               </motion.div>
 
+              {/* Our Vision */}
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-card p-8 rounded-lg shadow-lg"
+                transition={{ duration: 0.6, delay: 0.2 }}
+                whileHover={{ y: -10 }}
+                className="group relative"
               >
-                <Heart className="h-12 w-12 text-gold mb-4" />
-                <h3 className="text-2xl font-heading font-bold text-primary mb-4">Our Vision</h3>
-                <p className="text-foreground/80">
-                  To see every vulnerable child in our care restored with dignity, nurtured in
-                  love, strengthened in faith, and equipped with education and life skills to
-                  become responsible citizens and shining lights in society.
-                </p>
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#8BAA92] to-[#C0A58B] rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div className="relative bg-white p-10 rounded-3xl shadow-xl border border-[#8BAA92]/20 h-full">
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-gradient-to-br from-[#8BAA92] to-[#C0A58B] w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shadow-lg"
+                  >
+                    <Heart className="h-10 w-10 text-white" />
+                  </motion.div>
+                  
+                  <h3 className="text-4xl font-heading font-black text-[#8BAA92] mb-6">
+                    Our Vision
+                  </h3>
+                  
+                  <div className="h-1 w-16 bg-gradient-to-r from-[#C0A58B] to-[#D4BFA3] rounded-full mb-6"></div>
+                  
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    To see every vulnerable child in our care restored with dignity, nurtured in love, strengthened in faith, and equipped with education and life skills to become responsible citizens and shining lights in society.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Our Mission */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ y: -10 }}
+                className="group relative"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#C0A58B] to-[#D4BFA3] rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                <div className="relative bg-white p-10 rounded-3xl shadow-xl border border-[#C0A58B]/20 h-full">
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-gradient-to-br from-[#C0A58B] to-[#D4BFA3] w-20 h-20 rounded-2xl flex items-center justify-center mb-8 shadow-lg"
+                  >
+                    <Target className="h-10 w-10 text-white" />
+                  </motion.div>
+                  
+                  <h3 className="text-4xl font-heading font-black text-[#C0A58B] mb-6">
+                    Our Mission
+                  </h3>
+                  
+                  <div className="h-1 w-16 bg-gradient-to-r from-[#678E76] to-[#8BAA92] rounded-full mb-6"></div>
+                  
+                  <ul className="space-y-4">
+                    {missionPoints.map((point, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 + index * 0.1 }}
+                        className="flex items-start space-x-3"
+                      >
+                        <div className="bg-gradient-to-br from-[#C0A58B] to-[#D4BFA3] rounded-full p-1.5 mt-1 flex-shrink-0">
+                          <div className="h-2 w-2"></div>
+                        </div>
+                        <span className="text-gray-700 leading-relaxed">{point}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -164,128 +374,157 @@ const Bangalore = () => {
       </section>
 
       {/* What Makes Us Unique */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold text-primary mb-12 text-center">
-              What Makes Us Unique
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                {
-                  icon: Users,
-                  title: "Family Atmosphere",
-                  description: "Children grow in a home filled with love, acceptance, and belonging",
-                },
-                {
-                  icon: GraduationCap,
-                  title: "Quality Education",
-                  description: "All children attend reputed English medium schools in Bengaluru",
-                },
-                {
-                  icon: Heart,
-                  title: "Healthcare & Wellbeing",
-                  description:
-                    "Special care for HIV-affected and physically weak children, ensuring health",
-                },
-                {
-                  icon: Trophy,
-                  title: "Faith & Values",
-                  description: "Children nurtured with strong moral and spiritual values",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-card p-6 rounded-lg shadow-md border border-border hover:shadow-lg transition-shadow"
-                >
-                  <item.icon className="h-10 w-10 text-gold mb-4" />
-                  <h3 className="text-xl font-heading font-semibold text-primary mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-foreground/80">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="py-32 bg-gradient-to-br from-[#678E76] via-[#7A9B82] to-[#8BAA92] relative overflow-hidden">
+       <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(255,255,255,0.05)_25%,_transparent_25%,_transparent_75%,_rgba(255,255,255,0.05)_75%,_rgba(255,255,255,0.05))] [background-size:20px_20px] opacity-30"></div>
 
-      {/* Impact */}
-      <section className="py-20 bg-gradient-hero text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold mb-8 text-center">
-              25 Years of Transformation
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              {achievements.map((achievement, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="flex items-start space-x-3"
-                >
-                  <div className="bg-gold rounded-full p-1 mt-1 flex-shrink-0">
-                    <div className="h-2 w-2"></div>
-                  </div>
-                  <p className="text-white/90">{achievement}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Credentials & Achievements */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold text-primary mb-8 text-center">
-              Credentials & Achievements
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {credentials.map((credential, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-secondary p-6 rounded-lg"
-                >
-                  <Trophy className="h-8 w-8 text-gold mb-3" />
-                  <p className="text-foreground/80">{credential}</p>
-                </motion.div>
-              ))}
-            </div>
-
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-7xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 bg-gold/10 border-l-4 border-gold p-8 rounded-r-lg"
+              transition={{ duration: 0.8 }}
+              className="text-center mb-20"
             >
-              <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-                Academic Excellence
-              </h3>
-              <ul className="space-y-2 text-foreground/80">
-                <li>• Most children achieve distinctions in their studies</li>
-                <li>
-                  • 70% consistently score between A and B grades in reputed English-medium schools
-                </li>
-                <li>
-                  • Children earn certificates in Marathon running, Kabaddi, Athletics, Carom, and
-                  Drawing
-                </li>
-              </ul>
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="inline-block bg-white/20 backdrop-blur-md text-white px-6 py-2 rounded-full text-sm font-semibold mb-8 border border-white/30"
+              >
+                OUR UNIQUENESS
+              </motion.div>
+              
+              <h2 className="text-6xl md:text-7xl font-heading font-black text-white mb-6">
+                What Makes Us Unique
+              </h2>
+              
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="h-2 w-32 bg-gradient-to-r from-[#C0A58B] to-white mx-auto rounded-full"
+              />
             </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {uniqueFeatures.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 50, rotateY: -30 }}
+                  whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -15, scale: 1.02 }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-1 bg-gradient-to-r from-white/40 to-white/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                  <div className="relative bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/30 hover:bg-white/20 transition-all duration-500 h-full">
+                    <motion.div
+                      whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className={`bg-gradient-to-br ${feature.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-xl`}
+                    >
+                      <feature.icon className="h-8 w-8 text-white" />
+                    </motion.div>
+                    
+                    <h3 className="text-2xl font-heading font-bold text-white mb-4">
+                      {feature.title}
+                    </h3>
+                    
+                    <div className="h-1 w-12 bg-gradient-to-r from-[#C0A58B] to-white rounded-full mb-4"></div>
+                    
+                    <p className="text-white/90 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-32 bg-gradient-to-r from-[#C0A58B] via-[#D4BFA3] to-[#C0A58B] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.2),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(255,255,255,0.2),transparent_50%)]"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto text-center"
+          >
+            <motion.div
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="inline-block mb-8"
+            >
+              <Heart className="h-20 w-20 text-white" fill="currentColor" />
+            </motion.div>
+            
+            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight">
+              Join Us in Transforming Lives
+            </h2>
+            
+            <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Every child deserves a chance to dream, grow, and shine. Be part of their journey towards a brighter future.
+            </p>
+            
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              className="group bg-gradient-to-r from-[#678E76] to-[#8BAA92] text-white px-12 py-6 rounded-full font-bold text-xl shadow-2xl transition-all duration-300 inline-flex items-center gap-3 border-4 border-white/30"
+            >
+              Support Our Mission
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight className="h-6 w-6" />
+              </motion.div>
+            </motion.button>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-16 grid grid-cols-3 gap-8 max-w-3xl mx-auto"
+            >
+              {[
+                { number: "40+", label: "Children" },
+                { number: "23", label: "Years" },
+                { number: "180+", label: "Lives Transformed" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  className="bg-white/20 backdrop-blur-md p-6 rounded-2xl border border-white/30"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
+                    className="text-5xl font-black text-white mb-2"
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <div className="text-white/80 font-semibold">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

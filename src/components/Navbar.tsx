@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHomesDropdownOpen, setIsHomesDropdownOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +23,7 @@ const Navbar = () => {
     { name: "Genesis", path: "/genesis" },
     {
       name: "Homes",
-      path: "#",
+      path: "/homes",
       dropdown: [
         { name: "Bangalore", path: "/homes/bangalore" },
         { name: "Bhadrachalam", path: "/homes/bhadrachalam" },
@@ -35,6 +36,24 @@ const Navbar = () => {
     { name: "Jordan Community", path: "/jordan-community" },
     { name: "Church Planting", path: "/church-planting" },
   ];
+
+  const handleHomesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate("/homes");
+    setIsHomesDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleDropdownItemClick = (path: string) => {
+    navigate(path);
+    setIsHomesDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleHomesButtonClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsHomesDropdownOpen(!isHomesDropdownOpen);
+  };
 
   return (
     <motion.nav
@@ -77,23 +96,35 @@ const Navbar = () => {
                   onMouseEnter={() => setIsHomesDropdownOpen(true)}
                   onMouseLeave={() => setIsHomesDropdownOpen(false)}
                 >
-                  <button className="flex items-center space-x-1 text-white hover:text-gold transition-colors font-medium">
-                    <span>{link.name}</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </button>
+                  <div className="flex items-center space-x-1">
+                    <Link
+                      to={link.path}
+                      className="text-white hover:text-gold transition-colors font-medium"
+                      onClick={handleHomesClick}
+                    >
+                      {link.name}
+                    </Link>
+                    <button
+                      onClick={handleHomesButtonClick}
+                      className="text-white hover:text-gold transition-colors"
+                    >
+                      <ChevronDown className="h-4 w-4" />
+                    </button>
+                  </div>
                   <AnimatePresence>
                     {isHomesDropdownOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute top-full left-0 mt-2 w-48 bg-card shadow-elegant rounded-lg overflow-hidden z-50"
+                        className="absolute top-full left-0 mt-2 w-48 bg-card shadow-elegant rounded-lg overflow-hidden z-50 border border-gray-200"
                       >
                         {link.dropdown.map((item) => (
                           <Link
                             key={item.name}
                             to={item.path}
-                            className="block px-4 py-3 text-foreground hover:bg-secondary transition-colors"
+                            className="block px-4 py-3 text-foreground hover:bg-secondary transition-colors border-b border-gray-100 last:border-b-0"
+                            onClick={() => handleDropdownItemClick(item.path)}
                           >
                             {item.name}
                           </Link>
@@ -142,31 +173,46 @@ const Navbar = () => {
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div key={link.name}>
-                    <button
-                      onClick={() => setIsHomesDropdownOpen(!isHomesDropdownOpen)}
-                      className="w-full text-left px-4 py-3 text-white hover:text-gold transition-colors flex items-center justify-between"
-                    >
-                      <span>{link.name}</span>
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${
-                          isHomesDropdownOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    {isHomesDropdownOpen && (
-                      <div className="bg-primary-dark">
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.name}
-                            to={item.path}
-                            className="block px-8 py-2 text-white/90 hover:text-gold transition-colors"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex items-center justify-between">
+                      <Link
+                        to={link.path}
+                        className="flex-1 px-4 py-3 text-white hover:text-gold transition-colors"
+                        onClick={handleHomesClick}
+                      >
+                        {link.name}
+                      </Link>
+                      <button
+                        onClick={() => setIsHomesDropdownOpen(!isHomesDropdownOpen)}
+                        className="px-4 py-3 text-white hover:text-gold transition-colors"
+                      >
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform ${
+                            isHomesDropdownOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                    </div>
+                    <AnimatePresence>
+                      {isHomesDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="bg-primary-dark overflow-hidden"
+                        >
+                          {link.dropdown.map((item) => (
+                            <Link
+                              key={item.name}
+                              to={item.path}
+                              className="block px-8 py-2 text-white/90 hover:text-gold transition-colors"
+                              onClick={() => handleDropdownItemClick(item.path)}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 ) : (
                   <Link
