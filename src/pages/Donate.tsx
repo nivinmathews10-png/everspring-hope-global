@@ -107,11 +107,11 @@ const Donate = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <Heart className="h-20 w-20 mx-auto mb-6 text-gold animate-glow" />
-            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6">
+            <Heart className="h-16 w-16 md:h-20 md:w-20 mx-auto mb-4 md:mb-6 text-gold animate-glow" />
+            <h1 className="text-responsive-3xl md:text-7xl font-heading font-bold mb-4 md:mb-6 px-4">
               Transform Lives Today
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-white/90">
+            <p className="text-responsive-lg md:text-2xl max-w-3xl mx-auto mb-6 md:mb-8 text-white/90 px-4">
               Your generosity brings hope, dignity, and a brighter future to vulnerable children,
               elders, and communities across India
             </p>
@@ -144,10 +144,11 @@ const Donate = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.1, y: -5 }}
                 className="text-center"
               >
-                <div className="text-5xl font-heading font-bold text-gold mb-2">{stat.value}</div>
-                <div className="text-foreground/70">{stat.label}</div>
+                <div className="text-responsive-3xl md:text-5xl font-heading font-bold text-gold mb-2">{stat.value}</div>
+                <div className="text-responsive-sm text-foreground/70">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -164,10 +165,10 @@ const Donate = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
+              <h2 className="text-responsive-3xl md:text-5xl font-heading font-bold text-primary mb-4 md:mb-6 px-4">
                 Where Your Donation Goes
               </h2>
-              <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+              <p className="text-responsive-lg text-foreground/80 max-w-3xl mx-auto px-4">
                 Choose the area where you'd like to make the most impact
               </p>
             </motion.div>
@@ -180,14 +181,20 @@ const Donate = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-card p-8 rounded-lg shadow-lg card-hover border-t-4 border-gold"
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  className="bg-card p-6 md:p-8 rounded-lg shadow-lg card-hover border-t-4 border-gold"
                 >
-                  <area.icon className="h-16 w-16 text-gold mb-4" />
-                  <h3 className="text-2xl font-heading font-bold text-primary mb-3">
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <area.icon className="h-12 w-12 md:h-16 md:w-16 text-gold mb-4" />
+                  </motion.div>
+                  <h3 className="text-responsive-xl md:text-2xl font-heading font-bold text-primary mb-3">
                     {area.title}
                   </h3>
-                  <p className="text-foreground/80 mb-4 leading-relaxed">{area.description}</p>
-                  <div className="text-3xl font-bold text-gold mb-4">{area.amount}</div>
+                  <p className="text-responsive-sm text-foreground/80 mb-4 leading-relaxed">{area.description}</p>
+                  <div className="text-responsive-2xl md:text-3xl font-bold text-gold mb-4">{area.amount}</div>
                   <Button className="w-full bg-gradient-gold text-gold-foreground hover:opacity-90 font-semibold">
                     Donate Now
                   </Button>

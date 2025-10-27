@@ -51,7 +51,7 @@ const Homes = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-bold mb-6"
+            className="text-responsive-3xl md:text-7xl font-heading font-bold mb-4 md:mb-6"
           >
             Our Homes
           </motion.h1>
@@ -59,7 +59,7 @@ const Homes = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl max-w-2xl mx-auto"
+            className="text-responsive-lg md:text-2xl max-w-2xl mx-auto"
           >
             Transforming lives through love, care, and education across India
           </motion.p>
@@ -76,21 +76,25 @@ const Homes = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                whileHover={{ y: -10, scale: 1.05, rotateY: 5 }}
                 className="bg-card rounded-lg shadow-lg overflow-hidden group cursor-pointer"
               >
                 <Link to={home.path}>
                   <div className="p-6 text-center">
-                    <div className="bg-gold/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/30 transition-colors">
+                    <motion.div 
+                      className="bg-gold/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gold/30 transition-colors"
+                      whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <home.icon className="h-8 w-8 text-gold" />
-                    </div>
-                    <h3 className="text-2xl font-heading font-bold text-primary mb-2">
+                    </motion.div>
+                    <h3 className="text-responsive-xl md:text-2xl font-heading font-bold text-primary mb-2">
                       {home.name}
                     </h3>
-                    <p className="text-foreground/70 mb-4 text-sm">
+                    <p className="text-responsive-sm text-foreground/70 mb-4">
                       {home.description}
                     </p>
-                    <div className="flex justify-between text-sm text-foreground/60">
+                    <div className="flex justify-between text-responsive-xs text-foreground/60">
                       <span>{home.childrenCount} Children</span>
                       <span>Since {home.established}</span>
                     </div>

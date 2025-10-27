@@ -57,7 +57,7 @@ const Genesis = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-heading font-bold mb-6"
+            className="text-responsive-3xl md:text-7xl font-heading font-bold mb-4 md:mb-6"
           >
             About Us
           </motion.h1>
@@ -65,7 +65,7 @@ const Genesis = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl max-w-3xl mx-auto"
+            className="text-responsive-lg md:text-2xl max-w-3xl mx-auto"
           >
             A Journey of Faith, Hope, and Transformation
           </motion.p>
@@ -83,13 +83,14 @@ const Genesis = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.1, y: -5, rotate: [0, -5, 5, 0] }}
                 className="text-center"
               >
-                <stat.icon className="h-12 w-12 mx-auto mb-4 text-gold" />
-                <div className="text-4xl font-heading font-bold text-primary mb-2">
+                <stat.icon className="h-10 w-10 md:h-12 md:w-12 mx-auto mb-3 md:mb-4 text-gold" />
+                <div className="text-responsive-2xl md:text-4xl font-heading font-bold text-primary mb-2">
                   {stat.value}
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-responsive-sm text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -106,7 +107,7 @@ const Genesis = () => {
               viewport={{ once: true }}
               className="prose prose-lg max-w-none"
             >
-              <h2 className="text-4xl font-heading font-bold text-primary mb-6">
+              <h2 className="text-responsive-2xl md:text-4xl font-heading font-bold text-primary mb-4 md:mb-6">
                 The Heart of India's Need
               </h2>
               
@@ -119,7 +120,7 @@ const Genesis = () => {
                 />
               </div>
               
-              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
+              <p className="text-responsive-base text-foreground/80 leading-relaxed mb-6">
                 India, the world's second most populous nation, is home to over 1.2 billion people
                 across 29 states and 7 union territories. Despite decades of high economic growth,
                 millions remain trapped in poverty. Alarming realities paint the picture:
