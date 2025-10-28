@@ -343,7 +343,7 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
             <motion.a
-              href="#about"
+              href="/genesis"
               className="relative bg-gradient-to-r from-[#C2A68C] to-[#E6D8C3] text-[#3F5D4F] px-8 py-4 rounded-xl font-bold text-lg transition-all overflow-hidden group"
               whileHover={{ 
                 scale: 1.08, 
