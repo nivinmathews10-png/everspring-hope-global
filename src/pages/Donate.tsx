@@ -1,46 +1,43 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Heart, Users, GraduationCap, Home, HandHeart, Building } from "lucide-react";
+import { Heart, Users, GraduationCap, Home, HandHeart, Building, Copy, CheckCircle2, CreditCard, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Donate = () => {
+  const [copiedField, setCopiedField] = useState("");
+
   const impactAreas = [
     {
       icon: Home,
       title: "Children's Homes",
       description: "Provide shelter, food, and care for vulnerable children",
-      amount: "₹5,000/month",
     },
     {
       icon: GraduationCap,
       title: "Education Support",
       description: "Sponsor a child's education in reputed schools",
-      amount: "₹3,000/month",
     },
     {
       icon: Heart,
       title: "Elder Care",
       description: "Support widows and elderly with dignity",
-      amount: "₹2,500/month",
     },
     {
       icon: Users,
       title: "Community Centres",
       description: "Empower families within their villages",
-      amount: "₹4,000/month",
     },
     {
       icon: HandHeart,
       title: "Special Care",
       description: "HIV care and specialized support programs",
-      amount: "₹6,000/month",
     },
     {
       icon: Building,
       title: "Church Planting",
       description: "Establish new centers of hope and transformation",
-      amount: "₹10,000/project",
     },
   ];
 
@@ -50,6 +47,21 @@ const Donate = () => {
     { value: "25", label: "Years of Service" },
     { value: "8", label: "Active Centres" },
   ];
+
+  const bankDetails = {
+    accountName: "Everspring International",
+    accountNumber: "1234567890",
+    ifscCode: "ABCD0001234",
+    bankName: "State Bank of India",
+    branch: "Main Branch, Bangalore",
+    upiId: "everspring@upi"
+  };
+
+  const copyToClipboard = (text, field) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(field);
+    setTimeout(() => setCopiedField(""), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -77,8 +89,8 @@ const Donate = () => {
               key={i}
               className="absolute text-gold/20"
               initial={{
-                x: Math.random() * window.innerWidth,
-                y: window.innerHeight + 50,
+                x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+                y: typeof window !== 'undefined' ? window.innerHeight + 50 : 1000,
               }}
               animate={{
                 y: -50,
@@ -108,10 +120,10 @@ const Donate = () => {
             transition={{ duration: 0.6 }}
           >
             <Heart className="h-16 w-16 md:h-20 md:w-20 mx-auto mb-4 md:mb-6 text-gold animate-glow" />
-            <h1 className="text-responsive-3xl md:text-7xl font-heading font-bold mb-4 md:mb-6 px-4">
+            <h1 className="text-4xl md:text-7xl font-heading font-bold mb-4 md:mb-6 px-4">
               Transform Lives Today
             </h1>
-            <p className="text-responsive-lg md:text-2xl max-w-3xl mx-auto mb-6 md:mb-8 text-white/90 px-4">
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-6 md:mb-8 text-white/90 px-4">
               Your generosity brings hope, dignity, and a brighter future to vulnerable children,
               elders, and communities across India
             </p>
@@ -147,8 +159,8 @@ const Donate = () => {
                 whileHover={{ scale: 1.1, y: -5 }}
                 className="text-center"
               >
-                <div className="text-responsive-3xl md:text-5xl font-heading font-bold text-gold mb-2">{stat.value}</div>
-                <div className="text-responsive-sm text-foreground/70">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-heading font-bold text-gold mb-2">{stat.value}</div>
+                <div className="text-sm text-foreground/70">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -165,10 +177,10 @@ const Donate = () => {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-responsive-3xl md:text-5xl font-heading font-bold text-primary mb-4 md:mb-6 px-4">
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4 md:mb-6 px-4">
                 Where Your Donation Goes
               </h2>
-              <p className="text-responsive-lg text-foreground/80 max-w-3xl mx-auto px-4">
+              <p className="text-lg text-foreground/80 max-w-3xl mx-auto px-4">
                 Choose the area where you'd like to make the most impact
               </p>
             </motion.div>
@@ -190,14 +202,10 @@ const Donate = () => {
                   >
                     <area.icon className="h-12 w-12 md:h-16 md:w-16 text-gold mb-4" />
                   </motion.div>
-                  <h3 className="text-responsive-xl md:text-2xl font-heading font-bold text-primary mb-3">
+                  <h3 className="text-xl md:text-2xl font-heading font-bold text-primary mb-3">
                     {area.title}
                   </h3>
-                  <p className="text-responsive-sm text-foreground/80 mb-4 leading-relaxed">{area.description}</p>
-                  <div className="text-responsive-2xl md:text-3xl font-bold text-gold mb-4">{area.amount}</div>
-                  <Button className="w-full bg-gradient-gold text-gold-foreground hover:opacity-90 font-semibold">
-                    Donate Now
-                  </Button>
+                  <p className="text-sm text-foreground/80 mb-4 leading-relaxed">{area.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -205,49 +213,166 @@ const Donate = () => {
         </div>
       </section>
 
-      {/* One-Time vs Monthly */}
-      <section className="py-20 bg-gradient-primary text-white">
+      {/* Payment Details Section */}
+      <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-heading font-bold mb-12 text-center">
-              Ways to Give
-            </h2>
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
+                Make Your Donation
+              </h2>
+              <p className="text-lg text-foreground/80">
+                Choose your preferred payment method
+              </p>
+            </motion.div>
+
             <div className="grid md:grid-cols-2 gap-8">
+              {/* Bank Transfer Card */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-sm p-8 rounded-lg"
+                className="bg-card p-8 rounded-xl shadow-xl border-2 border-gold/20"
               >
-                <h3 className="text-2xl font-heading font-bold mb-4">One-Time Donation</h3>
-                <p className="text-white/90 mb-6">
-                  Make an immediate impact with a one-time contribution to support our ongoing
-                  programs and emergency needs.
-                </p>
-                <Button className="bg-gold hover:bg-gold-dark text-gold-foreground font-semibold w-full">
-                  Give Once
-                </Button>
+                <div className="flex items-center gap-3 mb-6">
+                  <CreditCard className="h-8 w-8 text-gold" />
+                  <h3 className="text-2xl font-heading font-bold text-primary">Bank Transfer</h3>
+                </div>
+
+                <div className="space-y-4">
+                  {/* Account Name */}
+                  <div className="bg-secondary p-4 rounded-lg">
+                    <p className="text-sm text-foreground/60 mb-1">Account Name</p>
+                    <div className="flex items-center justify-between">
+                      <p className="font-semibold text-foreground">{bankDetails.accountName}</p>
+                      <button
+                        onClick={() => copyToClipboard(bankDetails.accountName, 'accountName')}
+                        className="text-gold hover:text-gold-dark transition-colors"
+                      >
+                        {copiedField === 'accountName' ? (
+                          <CheckCircle2 className="h-5 w-5" />
+                        ) : (
+                          <Copy className="h-5 w-5" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Account Number */}
+                  <div className="bg-secondary p-4 rounded-lg">
+                    <p className="text-sm text-foreground/60 mb-1">Account Number</p>
+                    <div className="flex items-center justify-between">
+                      <p className="font-semibold text-foreground font-mono">{bankDetails.accountNumber}</p>
+                      <button
+                        onClick={() => copyToClipboard(bankDetails.accountNumber, 'accountNumber')}
+                        className="text-gold hover:text-gold-dark transition-colors"
+                      >
+                        {copiedField === 'accountNumber' ? (
+                          <CheckCircle2 className="h-5 w-5" />
+                        ) : (
+                          <Copy className="h-5 w-5" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* IFSC Code */}
+                  <div className="bg-secondary p-4 rounded-lg">
+                    <p className="text-sm text-foreground/60 mb-1">IFSC Code</p>
+                    <div className="flex items-center justify-between">
+                      <p className="font-semibold text-foreground font-mono">{bankDetails.ifscCode}</p>
+                      <button
+                        onClick={() => copyToClipboard(bankDetails.ifscCode, 'ifscCode')}
+                        className="text-gold hover:text-gold-dark transition-colors"
+                      >
+                        {copiedField === 'ifscCode' ? (
+                          <CheckCircle2 className="h-5 w-5" />
+                        ) : (
+                          <Copy className="h-5 w-5" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Bank Name */}
+                  <div className="bg-secondary p-4 rounded-lg">
+                    <p className="text-sm text-foreground/60 mb-1">Bank Name</p>
+                    <p className="font-semibold text-foreground">{bankDetails.bankName}</p>
+                  </div>
+
+                  {/* Branch */}
+                  <div className="bg-secondary p-4 rounded-lg">
+                    <p className="text-sm text-foreground/60 mb-1">Branch</p>
+                    <p className="font-semibold text-foreground">{bankDetails.branch}</p>
+                  </div>
+                </div>
               </motion.div>
 
+              {/* UPI Payment Card */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border-2 border-gold"
+                className="bg-card p-8 rounded-xl shadow-xl border-2 border-gold/20"
               >
-                <div className="inline-block bg-gold text-gold-foreground px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                  Recommended
+                <div className="flex items-center gap-3 mb-6">
+                  <Smartphone className="h-8 w-8 text-gold" />
+                  <h3 className="text-2xl font-heading font-bold text-primary">UPI Payment</h3>
                 </div>
-                <h3 className="text-2xl font-heading font-bold mb-4">Monthly Partnership</h3>
-                <p className="text-white/90 mb-6">
-                  Join our family of monthly partners and provide sustainable support that
-                  transforms lives over time. Cancel anytime.
+
+                {/* QR Code Placeholder */}
+                <div className="bg-secondary p-8 rounded-lg mb-6 flex items-center justify-center">
+                  <div className="bg-white p-4 rounded-lg">
+                    <div className="w-48 h-48 bg-gradient-to-br from-gold/20 to-primary/20 rounded-lg flex items-center justify-center">
+                      <p className="text-sm text-center text-foreground/60">QR Code<br/>Coming Soon</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* UPI ID */}
+                <div className="bg-secondary p-4 rounded-lg mb-4">
+                  <p className="text-sm text-foreground/60 mb-1">UPI ID</p>
+                  <div className="flex items-center justify-between">
+                    <p className="font-semibold text-foreground font-mono">{bankDetails.upiId}</p>
+                    <button
+                      onClick={() => copyToClipboard(bankDetails.upiId, 'upiId')}
+                      className="text-gold hover:text-gold-dark transition-colors"
+                    >
+                      {copiedField === 'upiId' ? (
+                        <CheckCircle2 className="h-5 w-5" />
+                      ) : (
+                        <Copy className="h-5 w-5" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                <p className="text-sm text-foreground/60 text-center">
+                  Scan the QR code or use the UPI ID to make your donation
                 </p>
-                <Button className="bg-gold hover:bg-gold-dark text-gold-foreground font-semibold w-full animate-glow">
-                  Become a Partner
-                </Button>
               </motion.div>
             </div>
+
+            {/* Note */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-8 bg-gold/10 border border-gold/30 p-6 rounded-lg"
+            >
+              <p className="text-foreground/80 text-center">
+                <strong className="text-gold">Note:</strong> After making your donation, please send us the transaction details at{" "}
+                <a href="mailto:donate@everspring.org" className="text-gold hover:underline">
+                  donate@everspring.org
+                </a>{" "}
+                to receive your receipt and tax exemption certificate.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -314,12 +439,12 @@ const Donate = () => {
                 For 25 years, we've witnessed miracles in the lives of vulnerable children, elders,
                 and communities. Your gift today continues this legacy of hope and transformation.
               </p>
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary-dark text-white font-semibold text-lg px-12 py-6 hover-glow"
+              <a
+                href="#donate-options"
+                className="inline-block bg-primary hover:bg-primary-dark text-white font-semibold text-lg px-12 py-6 rounded-lg hover-glow transition-all"
               >
                 Make Your Donation
-              </Button>
+              </a>
             </motion.div>
           </div>
         </div>

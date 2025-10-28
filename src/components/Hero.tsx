@@ -10,10 +10,10 @@ const Hero = () => {
     // Show text for 2 seconds
     const textTimer = setTimeout(() => {
       setShowText(false);
-      // Wait for zoom animation to complete (0.6s) before showing logo
+      // Wait for zoom animation to complete (0.8s) before showing logo
       setTimeout(() => {
         setShowLogo(true);
-      }, 600);
+      }, 800);
     }, 2000);
 
     return () => {
@@ -25,26 +25,44 @@ const Hero = () => {
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated Background Image */}
+      {/* Animated Gradient Background */}
       <div className="absolute inset-0">
         <motion.div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/hero.png')",
-          }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-b from-[#5D866C]/80 via-[#678E76]/60 to-[#5D866C]/80"
+          className="absolute inset-0"
           animate={{
             background: [
-              "linear-gradient(to bottom, rgba(93, 134, 108, 0.8), rgba(103, 142, 118, 0.45), rgba(93, 134, 108, 0.8))",
-              "linear-gradient(to bottom, rgba(93, 134, 108, 0.7), rgba(103, 142, 118, 0.7), rgba(93, 134, 108, 0.7))",
-              "linear-gradient(to bottom, rgba(93, 134, 108, 0.8), rgba(103, 142, 118, 0.6), rgba(93, 134, 108, 0.51))",
+              "radial-gradient(circle at 20% 50%, #5D866C 0%, #3F5D4F 50%, #2C4438 100%)",
+              "radial-gradient(circle at 80% 50%, #678E76 0%, #5D866C 50%, #3F5D4F 100%)",
+              "radial-gradient(circle at 50% 80%, #5D866C 0%, #4A6F5C 50%, #3F5D4F 100%)",
+              "radial-gradient(circle at 20% 50%, #5D866C 0%, #3F5D4F 50%, #2C4438 100%)",
             ],
           }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* Animated mesh gradient overlay */}
+        <motion.div 
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage: "radial-gradient(circle at 30% 30%, rgba(194, 166, 140, 0.3) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(230, 216, 195, 0.2) 0%, transparent 50%)",
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* Moving light beams */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(45deg, transparent 30%, rgba(245, 245, 240, 0.03) 50%, transparent 70%)",
+          }}
+          animate={{
+            x: ["-100%", "100%"],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         />
       </div>
 
@@ -140,10 +158,10 @@ const Hero = () => {
               key="text"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 5 }}
+              exit={{ opacity: 0, scale: 3 }}
               transition={{ 
-                initial: { duration: 0.5 },
-                exit: { duration: 0.6 }
+                initial: { duration: 0.6, ease: "easeOut" },
+                exit: { duration: 0.8, ease: [0.34, 1.26, 0.64, 1] }
               }}
               className="text-white absolute inset-0 flex items-center justify-center"
               style={{ marginTop: '-120px' }}
@@ -239,11 +257,8 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ 
-                  duration: 0.6,
-                  ease: "easeOut",
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15
+                  duration: 0.7,
+                  ease: [0.25, 0.46, 0.45, 0.94]
                 }}
                 className="relative flex justify-center items-center"
               >
@@ -263,7 +278,7 @@ const Hero = () => {
                         top: '50%',
                         marginLeft: '-6px',
                         marginTop: '-6px',
-                        transform: `rotate(${i * 45}deg) translateY(-${window.innerWidth >= 1024 ? 192 : window.innerWidth >= 768 ? 144 : 112}px)`,
+                        transform: `rotate(${i * 45}deg) translateY(-${typeof window !== 'undefined' && window.innerWidth >= 1024 ? 192 : typeof window !== 'undefined' && window.innerWidth >= 768 ? 144 : 112}px)`,
                       }}
                       animate={{
                         scale: [1, 1.5, 1],
@@ -302,7 +317,7 @@ const Hero = () => {
             )}
           </div>
 
-          <h1 className="text-responsive-3xl md:text-6xl lg:text-7xl font-bold mb-4 px-4">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 px-4">
             <motion.span
               className="inline-block bg-gradient-to-r from-[#E6D8C3] via-[#F5F5F0] to-[#C2A68C] bg-clip-text text-transparent"
               animate={{
@@ -315,7 +330,7 @@ const Hero = () => {
             </motion.span>
           </h1>
           
-          <p className="text-responsive-lg md:text-3xl font-light text-white/90 max-w-3xl mx-auto mb-12 px-4">
+          <p className="text-xl md:text-3xl font-light text-white/90 max-w-3xl mx-auto mb-12 px-4">
             <motion.span
               animate={{
                 opacity: [0.9, 1, 0.9],
