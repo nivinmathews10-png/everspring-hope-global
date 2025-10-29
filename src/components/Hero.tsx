@@ -3,22 +3,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Star, Sparkles, Zap } from "lucide-react";
 
 const Hero = () => {
-  const [showText, setShowText] = useState(true);
-  const [showLogo, setShowLogo] = useState(false);
+  const [showLogo, setShowLogo] = useState(true);
+  const [currentText, setCurrentText] = useState(0);
 
   useEffect(() => {
-    // Show text for 2 seconds
-    const textTimer = setTimeout(() => {
-      setShowText(false);
-      // Wait for zoom animation to complete (0.8s) before showing logo
-      setTimeout(() => {
-        setShowLogo(true);
-      }, 800);
-    }, 2000);
+    const interval = setInterval(() => {
+      setCurrentText((prev) => (prev + 1) % 2);
+    }, 4000);
 
-    return () => {
-      clearTimeout(textTimer);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -151,104 +144,7 @@ const Hero = () => {
       
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        {/* 25 Years Text Overlay */}
-        <AnimatePresence mode="wait">
-          {showText && (
-            <motion.div
-              key="text"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 3 }}
-              transition={{ 
-                initial: { duration: 0.6, ease: "easeOut" },
-                exit: { duration: 0.8, ease: [0.34, 1.26, 0.64, 1] }
-              }}
-              className="text-white absolute inset-0 flex items-center justify-center"
-              style={{ marginTop: '-120px' }}
-            >
-              <div className="relative">
-                {/* Glowing orbs around text */}
-                <motion.div
-                  className="absolute w-32 h-32 rounded-full blur-3xl"
-                  style={{
-                    background: "radial-gradient(circle, rgba(194, 166, 140, 0.8) 0%, transparent 70%)",
-                    top: '-20%',
-                    left: '-10%',
-                  }}
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.6, 0.9, 0.6],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute w-32 h-32 rounded-full blur-3xl"
-                  style={{
-                    background: "radial-gradient(circle, rgba(230, 216, 195, 0.8) 0%, transparent 70%)",
-                    bottom: '-20%',
-                    right: '-10%',
-                  }}
-                  animate={{
-                    scale: [1.3, 1, 1.3],
-                    opacity: [0.9, 0.6, 0.9],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute w-24 h-24 rounded-full blur-2xl"
-                  style={{
-                    background: "radial-gradient(circle, rgba(245, 245, 240, 0.7) 0%, transparent 70%)",
-                    top: '50%',
-                    right: '-15%',
-                  }}
-                  animate={{
-                    scale: [1, 1.4, 1],
-                    opacity: [0.5, 0.8, 0.5],
-                  }}
-                  transition={{ duration: 2.5, repeat: Infinity }}
-                />
-                <motion.div
-                  className="absolute w-24 h-24 rounded-full blur-2xl"
-                  style={{
-                    background: "radial-gradient(circle, rgba(194, 166, 140, 0.7) 0%, transparent 70%)",
-                    top: '50%',
-                    left: '-15%',
-                  }}
-                  animate={{
-                    scale: [1.4, 1, 1.4],
-                    opacity: [0.8, 0.5, 0.8],
-                  }}
-                  transition={{ duration: 2.5, repeat: Infinity }}
-                />
-
-                
-
-                {/* Main text with enhanced glow */}
-                <motion.h1 
-                  className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 relative z-10"
-                  style={{
-                    color: '#F5F5F0',
-                    textShadow: '0 0 30px rgba(194, 166, 140, 0.9), 0 0 60px rgba(230, 216, 195, 0.7), 0 0 90px rgba(194, 166, 140, 0.5)',
-                  }}
-                  animate={{
-                    textShadow: [
-                      '0 0 30px rgba(194, 166, 140, 0.9), 0 0 60px rgba(230, 216, 195, 0.7), 0 0 90px rgba(194, 166, 140, 0.5)',
-                      '0 0 40px rgba(230, 216, 195, 1), 0 0 80px rgba(194, 166, 140, 0.9), 0 0 120px rgba(230, 216, 195, 0.6)',
-                      '0 0 30px rgba(194, 166, 140, 0.9), 0 0 60px rgba(230, 216, 195, 0.7), 0 0 90px rgba(194, 166, 140, 0.5)',
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  25 Years of God's Faithfulness
-                </motion.h1>
-
-               
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Main Content - Always Visible */}
+        {/* Main Content */}
         <div className="text-white">
           {/* Logo Image - Only shows after text animation */}
           <div className="mb-8 flex justify-center items-center relative" style={{ minHeight: '320px' }}>
@@ -317,17 +213,20 @@ const Hero = () => {
             )}
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 px-4">
-            <motion.span
-              className="inline-block bg-gradient-to-r from-[#E6D8C3] via-[#F5F5F0] to-[#C2A68C] bg-clip-text text-transparent"
-              animate={{
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              style={{ backgroundSize: "200% 200%" }}
-            >
-              Everspring International
-            </motion.span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-4 px-4 py-4 h-24 md:h-32 flex items-center justify-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={currentText}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -100, opacity: 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="inline-block bg-gradient-to-r from-[#E6D8C3] via-[#F5F5F0] to-[#C2A68C] bg-clip-text text-transparent font-serif"
+                style={{ backgroundSize: "200% 200%" }}
+              >
+                {currentText === 0 ? "25 Years of God's Faithfulness" : "Everspring International"}
+              </motion.span>
+            </AnimatePresence>
           </h1>
           
           <p className="text-xl md:text-3xl font-light text-white/90 max-w-3xl mx-auto mb-12 px-4">
@@ -395,9 +294,6 @@ const Hero = () => {
 
       {/* Enhanced Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: showText ? 0 : 1 }}
-        transition={{ duration: 0.3 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
