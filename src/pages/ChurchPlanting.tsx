@@ -197,7 +197,7 @@ const ChurchPlanting = () => {
                 </div>
               </motion.div>
               
-              <h1 className="text-6xl md:text-8xl font-heading font-black text-white mb-6 tracking-tight leading-none">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-none">
                 <motion.span
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -228,16 +228,16 @@ const ChurchPlanting = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-3xl md:text-4xl font-light text-white/95"
+                className="text-xl sm:text-2xl md:text-3xl font-light text-white/95"
               >
                 Building Communities of Faith, Hope, and Transformation
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
-                className="text-xl md:text-2xl text-white/80 mt-4 max-w-2xl mx-auto"
+                className="text-base sm:text-lg md:text-xl text-white/80 mt-4 max-w-2xl mx-auto"
               >
                 Reaching India's 500,000+ villages without church presence
               </motion.p>
@@ -284,7 +284,7 @@ const ChurchPlanting = () => {
                   INDIA'S SPIRITUAL LANDSCAPE
                 </motion.div>
                 
-                <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
                   The Urgent Need
                 </h2>
                 
@@ -305,18 +305,25 @@ const ChurchPlanting = () => {
                 className="relative mb-16"
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur-2xl" />
-                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-12 md:p-16 rounded-3xl shadow-2xl border border-[#678E76]/10">
-                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-8 md:p-12 rounded-3xl shadow-2xl border border-[#678E76]/10">
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=1200&q=80"
+                      alt="Church community"
+                      className="w-full h-64 md:h-80 object-cover rounded-2xl mb-6"
+                    />
+                  </div>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                     India has over <span className="font-bold text-[#678E76]">600,000 villages</span>, and over{" "}
                     <span className="font-bold text-[#8BAA92]">500,000 still have no church presence</span>.
                   </p>
-                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                     Among <span className="font-bold text-red-600">1,200+ people groups</span>,{" "}
                     <span className="font-bold text-[#678E76]">256+ remain unreached</span>.
                   </p>
                   
-                  <div className="relative bg-gradient-to-br from-[#678E76]/10 to-[#8BAA92]/10 p-8 rounded-2xl border-l-4 border-[#678E76]">
-                    <p className="text-2xl text-gray-800 leading-relaxed font-semibold italic">
+                  <div className="relative bg-gradient-to-br from-[#678E76]/10 to-[#8BAA92]/10 p-6 rounded-2xl border-l-4 border-[#678E76]">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed font-semibold italic">
                       "India is home to the largest number of unreached people groups in the world. Over 500 million people have never heard the name of Jesus."
                     </p>
                   </div>
@@ -409,15 +416,15 @@ const ChurchPlanting = () => {
                 className="relative"
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur-2xl"></div>
-                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-8 rounded-3xl shadow-2xl border border-[#678E76]/10">
-                  <h3 className="text-3xl font-heading font-bold text-[#678E76] mb-6">Two Unchanging Goals</h3>
+                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-6 md:p-8 rounded-3xl shadow-2xl border border-[#678E76]/10">
+                  <h3 className="text-2xl sm:text-3xl font-heading font-bold text-[#678E76] mb-6">Two Unchanging Goals</h3>
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
                       <div className="bg-gradient-to-br from-[#678E76] to-[#8BAA92] w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0">
                         <Award className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold text-[#678E76] mb-2">To Glorify the Lord</h4>
+                        <h4 className="text-lg sm:text-xl font-bold text-[#678E76] mb-2">To Glorify the Lord</h4>
                         <p className="text-gray-700">Keeping Christ at the center of all ministry efforts</p>
                       </div>
                     </div>
@@ -426,7 +433,7 @@ const ChurchPlanting = () => {
                         <Heart className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold text-[#678E76] mb-2">To Win a Perishing Soul</h4>
+                        <h4 className="text-lg sm:text-xl font-bold text-[#678E76] mb-2">To Win a Perishing Soul</h4>
                         <p className="text-gray-700">Reaching the lost with the transformative power of the Gospel</p>
                       </div>
                     </div>
@@ -441,10 +448,20 @@ const ChurchPlanting = () => {
                 transition={{ duration: 0.8 }}
                 className="space-y-6"
               >
-                <p className="text-xl leading-relaxed text-gray-700">
+                <img
+                  src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1200&q=80"
+                  alt="Gospel outreach"
+                  className="w-full h-48 md:h-64 object-cover rounded-2xl mb-6"
+                />
+                <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700">
                   Even during his theological studies, his heart burned for the lost. He reached out to rickshaw pullers and stone cutters, sharing the love of Christ with them, and planted two churches—one in Nacharam and another in Warasiguda, Hyderabad.
                 </p>
-                <p className="text-xl leading-relaxed text-gray-700">
+                <img
+                  src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1200&q=80"
+                  alt="Gospel outreach"
+                  className="w-full h-48 md:h-64 object-cover rounded-2xl mb-6"
+                />
+                <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-700">
                   After completing his theological education, he was burdened to train lay leaders and pastors who lacked the opportunity to attend Bible colleges. Despite limited resources, he began on-site Biblical training programs in 2005 in Bangalore, Jammikunta, and Kaluvai, where he successfully trained 120 church planters.
                 </p>
               </motion.div>
@@ -459,9 +476,14 @@ const ChurchPlanting = () => {
               className="mt-16 relative"
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/10 to-[#C0A58B]/10 rounded-3xl blur-2xl" />
-              <div className="relative bg-gradient-to-br from-[#678E76] to-[#8BAA92] p-12 rounded-3xl text-white">
-                <h3 className="text-4xl font-heading font-bold mb-6 text-center">The Koya Tribe Breakthrough</h3>
-                <p className="text-xl leading-relaxed mb-6 text-center">
+              <div className="relative bg-gradient-to-br from-[#678E76] to-[#8BAA92] p-8 md:p-12 rounded-3xl text-white">
+                <img
+                  src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80"
+                  alt="Tribal community outreach"
+                  className="w-full h-64 md:h-80 object-cover rounded-2xl mb-8"
+                />
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-6 text-center">The Koya Tribe Breakthrough</h3>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 text-center">
                   In 2009, Pastor George accepted an invitation from his friend, Pastor Danasari Sreenu, to visit the Koya tribal community in Bhadrachalam. Deeply moved by the sight of children suffering from malnutrition and eating mud due to extreme poverty, he stepped out in faith—despite financial challenges—to start a Children's Home and support Pastor Sreenu in spreading the Gospel among the Koya people.
                 </p>
                 <motion.div
@@ -506,7 +528,7 @@ const ChurchPlanting = () => {
                 OUR IMPACT
               </motion.div>
               
-              <h2 className="text-6xl md:text-7xl font-heading font-black text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-6">
                 Ministry Reach & Values
               </h2>
               
@@ -540,13 +562,13 @@ const ChurchPlanting = () => {
                       <value.icon className="h-8 w-8 text-white" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-heading font-bold text-white mb-4 text-center">
+                    <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-4 text-center">
                       {value.title}
                     </h3>
                     
                     <div className="h-1 w-12 bg-gradient-to-r from-[#C0A58B] to-white rounded-full mb-4 mx-auto"></div>
                     
-                    <p className="text-white/90 leading-relaxed text-center mb-4">
+                    <p className="text-sm sm:text-base text-white/90 leading-relaxed text-center mb-4">
                       {value.description}
                     </p>
                     
@@ -591,7 +613,7 @@ const ChurchPlanting = () => {
                   LEADERSHIP DEVELOPMENT
                 </motion.div>
                 
-                <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
                   Jeevajala Theological Seminary
                 </h2>
                 
@@ -683,11 +705,11 @@ const ChurchPlanting = () => {
               <Cross className="h-20 w-20 text-white" />
             </motion.div>
             
-            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-8 leading-tight">
               Join the Great Commission
             </h2>
             
-            <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               "How can they believe in the one of whom they have not heard?" — Romans 10:14
             </p>
             

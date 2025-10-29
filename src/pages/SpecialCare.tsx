@@ -252,7 +252,7 @@ const SpecialCare = () => {
                 </div>
               </motion.div>
               
-              <h1 className="text-6xl md:text-8xl font-heading font-black text-white mb-6 tracking-tight leading-none">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-none">
                 <motion.span
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -283,16 +283,16 @@ const SpecialCare = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-3xl md:text-4xl font-light text-white/95"
+                className="text-xl sm:text-2xl md:text-3xl font-light text-white/95"
               >
                 Advanced Healthcare for Vulnerable Communities
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
-                className="text-xl md:text-2xl text-white/80 mt-4 max-w-2xl mx-auto"
+                className="text-base sm:text-lg md:text-xl text-white/80 mt-4 max-w-2xl mx-auto"
               >
                 Transforming lives through comprehensive medical care and specialized treatment
               </motion.p>
@@ -381,7 +381,7 @@ const SpecialCare = () => {
                 OUR MEDICAL PROGRAMS
               </motion.div>
               
-              <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
                 Healthcare Initiatives
               </h2>
               
@@ -441,14 +441,14 @@ const SpecialCare = () => {
                         </div>
                       </div>
                       
-                      <h3 className="text-3xl font-heading font-bold text-[#678E76] mb-2">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-[#678E76] mb-2">
                         {program.title}
                       </h3>
-                      <p className="text-lg text-[#8BAA92] font-semibold mb-4">{program.location}</p>
+                      <p className="text-base sm:text-lg text-[#8BAA92] font-semibold mb-4">{program.location}</p>
                       
                       <div className={`h-1 w-24 bg-gradient-to-r ${program.color} rounded-full mb-6`}></div>
                       
-                      <p className="text-gray-700 leading-relaxed mb-6">
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
                         {program.description}
                       </p>
                       
@@ -496,7 +496,7 @@ const SpecialCare = () => {
                   FOCUS AREA
                 </motion.div>
                 
-                <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
                   HIV Care Centre - Bidar
                 </h2>
                 
@@ -520,12 +520,17 @@ const SpecialCare = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur-2xl" />
                 <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] rounded-3xl shadow-2xl border border-[#678E76]/10 overflow-hidden">
                   <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="p-8 md:p-12">
-                      <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                    <div className="p-6 md:p-8">
+                      <img
+                        src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&q=80"
+                        alt="Healthcare worker with patient"
+                        className="w-full h-48 md:h-64 object-cover rounded-2xl mb-6"
+                      />
+                      <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                         In <span className="font-bold text-[#678E76]">Bidar, Karnataka</span>, HIV prevalence remains relatively low, with an estimated{" "}
                         <span className="font-bold text-[#8BAA92]">0.32% among pregnant women</span> in the Gulbarga region.
                       </p>
-                      <p className="text-2xl text-gray-700 leading-relaxed">
+                      <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
                         However, the impact on children and families is significant, especially in{" "}
                         <span className="font-bold text-red-600">marginalized communities</span>.
                       </p>
@@ -549,7 +554,7 @@ const SpecialCare = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="mb-16"
               >
-                <h3 className="text-4xl font-heading font-bold text-center text-[#678E76] mb-12">Comprehensive Medical Services</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-center text-[#678E76] mb-12">Comprehensive Medical Services</h3>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {medicalServices.map((service, index) => (
                     <motion.div
@@ -563,7 +568,7 @@ const SpecialCare = () => {
                       <div className={`bg-gradient-to-r ${service.color} w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
                         <service.icon className="h-8 w-8 text-white" />
                       </div>
-                      <h4 className="text-lg font-bold text-[#678E76] mb-2">{service.title}</h4>
+                      <h4 className="text-base sm:text-lg font-bold text-[#678E76] mb-2">{service.title}</h4>
                       <p className="text-gray-600 text-sm">{service.description}</p>
                     </motion.div>
                   ))}
@@ -592,13 +597,13 @@ const SpecialCare = () => {
                         <service.icon className="h-16 w-16 text-[#678E76] mx-auto" />
                       </motion.div>
                       
-                      <h3 className="text-2xl font-heading font-bold text-[#678E76] mb-4 text-center">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-[#678E76] mb-4 text-center">
                         {service.title}
                       </h3>
                       
                       <div className="h-1 w-12 bg-gradient-to-r from-[#678E76] to-[#8BAA92] rounded-full mb-4 mx-auto"></div>
                       
-                      <p className="text-gray-700 leading-relaxed text-center mb-4">
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center mb-4">
                         {service.description}
                       </p>
                       
@@ -644,11 +649,11 @@ const SpecialCare = () => {
               <Heart className="h-20 w-20 text-white" fill="currentColor" />
             </motion.div>
             
-            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-8 leading-tight">
               Specialized Medical Care
             </h2>
             
-            <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Supporting vulnerable communities with specialized medical needs, breaking stigma, and building healthier futures through comprehensive healthcare.
             </p>
             

@@ -214,7 +214,7 @@ const ElderCare = () => {
                 </div>
               </motion.div>
               
-              <h1 className="text-6xl md:text-8xl font-heading font-black text-white mb-6 tracking-tight leading-none">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-none">
                 <motion.span
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -245,16 +245,16 @@ const ElderCare = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-3xl md:text-4xl font-light text-white/95"
+                className="text-xl sm:text-2xl md:text-3xl font-light text-white/95"
               >
                 Jeevanahalli, Bengaluru
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
-                className="text-xl md:text-2xl text-white/80 mt-4 max-w-2xl mx-auto"
+                className="text-base sm:text-lg md:text-xl text-white/80 mt-4 max-w-2xl mx-auto"
               >
                 Restoring dignity, care and companionship in the golden years
               </motion.p>
@@ -324,7 +324,7 @@ const ElderCare = () => {
                   THE NEED WE ADDRESS
                 </motion.div>
                 
-                <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
                   Caring for Our Elders
                 </h2>
                 
@@ -345,17 +345,24 @@ const ElderCare = () => {
                 className="relative mb-16"
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur-2xl" />
-                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-12 md:p-16 rounded-3xl shadow-2xl border border-[#678E76]/10">
-                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-8 md:p-12 rounded-3xl shadow-2xl border border-[#678E76]/10">
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&q=80"
+                      alt="Elderly care community"
+                      className="w-full h-64 md:h-80 object-cover rounded-2xl mb-6"
+                    />
+                  </div>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                     The slums of <span className="font-bold text-[#678E76]">Bengaluru</span> are home to many elderly people — in some communities over{" "}
                     <span className="font-bold text-[#8BAA92]">6% are aged 60 or above</span>.
                   </p>
-                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                     Widowed women are often left without support, facing illiteracy, malnutrition, health issues and social exclusion.
                   </p>
                   
-                  <div className="relative bg-gradient-to-br from-[#678E76]/10 to-[#8BAA92]/10 p-8 rounded-2xl border-l-4 border-[#678E76]">
-                    <p className="text-2xl text-gray-800 leading-relaxed font-semibold italic">
+                  <div className="relative bg-gradient-to-br from-[#678E76]/10 to-[#8BAA92]/10 p-6 rounded-2xl border-l-4 border-[#678E76]">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed font-semibold italic">
                       "In one study of women living in 40 slums, 19 out of 30 interviewed were widowed at a young age, highlighting the urgent need for intervention."
                     </p>
                   </div>
@@ -460,13 +467,13 @@ const ElderCare = () => {
                       <service.icon className="h-16 w-16 text-[#678E76] mx-auto" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-heading font-bold text-[#678E76] mb-4 text-center">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-[#678E76] mb-4 text-center">
                       {service.title}
                     </h3>
                     
                     <div className={`h-1 w-12 bg-gradient-to-r ${service.color} rounded-full mb-4 mx-auto`}></div>
                     
-                    <p className="text-gray-700 leading-relaxed text-center mb-4">
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center mb-4">
                       {service.description}
                     </p>
                     
@@ -517,7 +524,7 @@ const ElderCare = () => {
                 TRANSFORMATION STORY
               </motion.div>
               
-              <h2 className="text-6xl md:text-7xl font-heading font-black text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-6">
                 Nanjamma's Journey
               </h2>
               
@@ -551,15 +558,22 @@ const ElderCare = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="bg-white/10 backdrop-blur-xl p-8 rounded-3xl border border-white/30"
+                className="bg-white/10 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/30"
               >
-                <h3 className="text-3xl font-heading font-bold text-white mb-6">From Abandonment to Dignity</h3>
-                <p className="text-white/90 leading-relaxed mb-4 text-lg">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-white mb-6">From Abandonment to Dignity</h3>
+                <div className="mb-6">
+                  <img
+                    src="https://images.unsplash.com/photo-1571844307880-751c6d86f3f3?w=1200&q=80"
+                    alt="Elderly woman with caregiver"
+                    className="w-full h-48 md:h-64 object-cover rounded-2xl"
+                  />
+                </div>
+                <p className="text-white/90 leading-relaxed mb-4 text-sm sm:text-base md:text-lg">
                   One of the women who found refuge at the New Hope Elder and Widows Home had endured years of
                   neglect and abandonment. Left without family support, she struggled daily with hunger, illness,
                   and loneliness.
                 </p>
-                <p className="text-white/90 leading-relaxed mb-6 text-lg">
+                <p className="text-white/90 leading-relaxed mb-6 text-sm sm:text-base md:text-lg">
                   Through Helping Hands India, she received nutritious meals, medical attention, clothing and shelter,
                   and guidance to access government benefits. Most importantly, she found a community of love and
                   spiritual care.
@@ -567,11 +581,11 @@ const ElderCare = () => {
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="inline-flex items-center gap-2 text-[#C0A58B] font-bold text-xl"
+                  className="inline-flex items-center gap-2 text-[#C0A58B] font-bold text-base sm:text-lg md:text-xl"
                 >
-                  <Sparkles className="h-6 w-6" />
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6" />
                   She died with smiles and joy on her face
-                  <Sparkles className="h-6 w-6" />
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6" />
                 </motion.div>
               </motion.div>
             </div>
@@ -634,11 +648,11 @@ const ElderCare = () => {
               <Heart className="h-20 w-20 text-white" fill="currentColor" />
             </motion.div>
             
-            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-8 leading-tight">
               A Testament to Compassion
             </h2>
             
-            <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               With compassion and consistent care, even the most vulnerable can live a full, dignified life.
               Join us in supporting elder care in Jeevanahalli.
             </p>

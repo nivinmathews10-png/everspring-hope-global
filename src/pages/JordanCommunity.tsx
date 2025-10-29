@@ -198,7 +198,7 @@ const JordanCommunity = () => {
                 </div>
               </motion.div>
               
-              <h1 className="text-6xl md:text-8xl font-heading font-black text-white mb-6 tracking-tight leading-none">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-none">
                 <motion.span
                   initial={{ opacity: 0, x: -100 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -229,16 +229,16 @@ const JordanCommunity = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-3xl md:text-4xl font-light text-white/95"
+                className="text-xl sm:text-2xl md:text-3xl font-light text-white/95"
               >
                 Jagurupadu, Andhra Pradesh
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 1 }}
-                className="text-xl md:text-2xl text-white/80 mt-4 max-w-2xl mx-auto"
+                className="text-base sm:text-lg md:text-xl text-white/80 mt-4 max-w-2xl mx-auto"
               >
                 Restoring Dignity for the Marginalized
               </motion.p>
@@ -285,7 +285,7 @@ const JordanCommunity = () => {
                   OUR MISSION
                 </motion.div>
                 
-                <h2 className="text-6xl md:text-7xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black bg-gradient-to-r from-[#678E76] to-[#8BAA92] bg-clip-text text-transparent mb-6">
                   Serving the Most Vulnerable
                 </h2>
                 
@@ -306,8 +306,15 @@ const JordanCommunity = () => {
                 className="relative mb-16"
               >
                 <div className="absolute -inset-4 bg-gradient-to-r from-[#678E76]/20 to-[#C0A58B]/20 rounded-3xl blur-2xl" />
-                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-12 md:p-16 rounded-3xl shadow-2xl border border-[#678E76]/10">
-                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                <div className="relative bg-gradient-to-br from-white to-[#FAF8F5] p-8 md:p-12 rounded-3xl shadow-2xl border border-[#678E76]/10">
+                  <div className="mb-8">
+                    <img
+                      src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&q=80"
+                      alt="Community care"
+                      className="w-full h-64 md:h-80 object-cover rounded-2xl mb-6"
+                    />
+                  </div>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                     In <span className="font-bold text-[#678E76]">2015</span>, a community support initiative was established in{" "}
                     <motion.span
                       whileHover={{ scale: 1.1 }}
@@ -317,12 +324,12 @@ const JordanCommunity = () => {
                     </motion.span>
                     , a village approximately 20 km from Peddapuram, Andhra Pradesh.
                   </p>
-                  <p className="text-2xl text-gray-700 leading-relaxed mb-8">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6">
                     This area is home to a significant population affected by{" "}
                     <span className="font-bold text-red-600">leprosy</span>—a chronic infectious disease that historically leads to social stigma, discrimination, and isolation.
                   </p>
-                  <div className="relative bg-gradient-to-br from-[#678E76]/10 to-[#8BAA92]/10 p-8 rounded-2xl border-l-4 border-[#678E76]">
-                    <p className="text-2xl text-gray-800 leading-relaxed font-semibold">
+                  <div className="relative bg-gradient-to-br from-[#678E76]/10 to-[#8BAA92]/10 p-6 rounded-2xl border-l-4 border-[#678E76]">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-800 leading-relaxed font-semibold">
                       "People affected by leprosy often face poverty, lack of access to healthcare, and exclusion from society, making them one of the most vulnerable groups in rural India."
                     </p>
                   </div>
@@ -337,7 +344,7 @@ const JordanCommunity = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-center"
               >
-                <h3 className="text-4xl font-heading font-bold text-[#678E76] mb-8">Understanding the Vulnerability</h3>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-[#678E76] mb-8">Understanding the Vulnerability</h3>
                 <div className="grid md:grid-cols-4 gap-6">
                   {[
                     { icon: <FaUserSlash className="text-red-500" />, title: "Social Isolation", desc: "Excluded from community" },
@@ -428,13 +435,13 @@ const JordanCommunity = () => {
                       <achievement.icon className="h-16 w-16 text-[#678E76] mx-auto" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-heading font-bold text-[#678E76] mb-4 text-center">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-heading font-bold text-[#678E76] mb-4 text-center">
                       {achievement.title}
                     </h3>
                     
                     <div className={`h-1 w-12 bg-gradient-to-r ${achievement.color} rounded-full mb-4 mx-auto`}></div>
                     
-                    <p className="text-gray-700 leading-relaxed text-center mb-4">
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center mb-4">
                       {achievement.description}
                     </p>
                     
@@ -485,7 +492,7 @@ const JordanCommunity = () => {
                 COMPREHENSIVE SUPPORT
               </motion.div>
               
-              <h2 className="text-6xl md:text-7xl font-heading font-black text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-6">
                 Our Holistic Approach
               </h2>
               
@@ -519,7 +526,7 @@ const JordanCommunity = () => {
                       <service.icon className="h-8 w-8 text-white" />
                     </motion.div>
                     
-                    <h3 className="text-2xl font-heading font-bold text-white mb-6 text-center">
+                    <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-6 text-center">
                       {service.title}
                     </h3>
                     
@@ -561,7 +568,12 @@ const JordanCommunity = () => {
                 >
                   <Sparkles className="h-16 w-16 text-[#C0A58B]" />
                 </motion.div>
-                <p className="text-3xl text-white leading-relaxed italic mb-6">
+                <img
+                  src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80"
+                  alt="Community support"
+                  className="w-full h-64 md:h-80 object-cover rounded-2xl mb-8"
+                />
+                <p className="text-lg sm:text-xl md:text-2xl text-white leading-relaxed italic mb-6">
                   "This program demonstrates the power of targeted community support in improving health, dignity, and social inclusion for one of the most marginalized groups in rural Andhra Pradesh."
                 </p>
                 <motion.div
@@ -600,11 +612,11 @@ const JordanCommunity = () => {
               <Heart className="h-20 w-20 text-white" fill="currentColor" />
             </motion.div>
             
-            <h2 className="text-5xl md:text-7xl font-heading font-black text-white mb-8 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white mb-8 leading-tight">
               Join Our Mission of Hope
             </h2>
             
-            <p className="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
               Your support can help us continue providing essential care, dignity, and hope to those who have been forgotten by society.
             </p>
             
