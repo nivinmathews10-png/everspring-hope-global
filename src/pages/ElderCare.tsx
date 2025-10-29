@@ -2,9 +2,10 @@ import React, { useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { 
-  Heart, Home, Utensils, Shield, Users, BookOpen, Calendar, 
-  Star, ArrowRight, Sparkles, Award, Stethoscope, Church, 
+import { VolunteerDialog } from "@/components/VolunteerDialog";
+import {
+  Heart, Home, Utensils, Shield, Users, BookOpen, Calendar,
+  Star, ArrowRight, Sparkles, Award, Stethoscope, Church,
   Shirt, Smile, TrendingUp, MapPin, Clock, Ribbon
 } from "lucide-react";
 
@@ -657,13 +658,17 @@ const ElderCare = () => {
                 </motion.div>
               </motion.button>
               
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group bg-white/20 backdrop-blur-md text-white px-12 py-6 rounded-full font-bold text-xl border-4 border-white/30 hover:bg-white/30 transition-all duration-300"
-              >
-                Volunteer Today
-              </motion.button>
+              <VolunteerDialog
+                trigger={
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group bg-white/20 backdrop-blur-md text-white px-12 py-6 rounded-full font-bold text-xl border-4 border-white/30 hover:bg-white/30 transition-all duration-300"
+                  >
+                    Volunteer Today
+                  </motion.button>
+                }
+              />
             </div>
             
             <motion.div

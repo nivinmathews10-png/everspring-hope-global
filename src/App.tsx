@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop"; // 👈 add this import
 
 import Index from "./pages/Index";
-import Homes from "./pages/Homes"; // ← Add this import
+import Homes from "./pages/Homes";
 import Genesis from "./pages/AboutUs";
 import Bangalore from "./pages/homes/Bangalore";
 import Bhadrachalam from "./pages/homes/Bhadrachalam";
@@ -17,6 +17,8 @@ import SpecialCare from "./pages/SpecialCare";
 import JordanCommunity from "./pages/JordanCommunity";
 import ChurchPlanting from "./pages/ChurchPlanting";
 import Donate from "./pages/Donate";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +43,8 @@ const App = () => (
     <Route path="/jordan-community" element={<JordanCommunity />} />
     <Route path="/church-planting" element={<ChurchPlanting />} />
     <Route path="/donate" element={<Donate />} />
+    <Route path="/admin/login" element={<AdminLogin />} />
+    <Route path="/admin/dashboard" element={<AdminDashboard />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 </BrowserRouter>
